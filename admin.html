@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TITRITE HOUSE — Espace Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#0B2117; --dark:#0A0D0B; --charcoal:#151713;
+    --ivory:#F4F0E7; --stone:#D8D0C2; --gold:#B08D45; --gold-soft: rgba(176,141,69,0.35);
+    --danger:#a33; --ok:#3a7d4f;
+    --serif:'Cormorant Garamond', serif; --sans:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:var(--sans); background:var(--ivory); color:var(--charcoal);}
+  h1,h2,h3{font-family:var(--serif); font-weight:600; margin:0;}
+  button{font-family:inherit; cursor:pointer;}
+  input,select,textarea{font-family:inherit; font-size:.9rem;}
+
+  /* ---- Login ---- */
+  #loginScreen{
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background: var(--forest);
+  }
+  .login-card{
+    background: var(--dark); border:1px solid var(--gold-soft); padding:2.6rem 2.4rem;
+    width:min(340px, 90vw); text-align:center;
+  }
+  .login-card h1{ color:var(--ivory); font-size:1.5rem; letter-spacing:.04em; margin-bottom:.3rem; }
+  .login-card p{ color:var(--stone); font-size:.82rem; margin:0 0 1.6rem; }
+  .login-card input{
+    width:100%; padding:.75rem .9rem; background:var(--charcoal); border:1px solid var(--gold-soft);
+    color:var(--ivory); margin-bottom:1rem;
+  }
+  .login-card button{
+    width:100%; padding:.75rem; background:var(--gold); color:var(--dark); border:none;
+    font-weight:600; letter-spacing:.04em;
+  }
+  .login-error{ color:#e08787; font-size:.78rem; min-height:1.2em; margin-top:.8rem; }
+
+  /* ---- Shell ---- */
+  #app{ display:none; }
+  header.admin-header{
+    background:var(--forest); color:var(--ivory); padding:1rem 2rem;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  header.admin-header .brand{ font-family:var(--serif); font-size:1.2rem; letter-spacing:.08em; }
+  header.admin-header .brand span{ color:var(--gold); }
+  #logoutBtn{ background:none; border:1px solid var(--gold-soft); color:var(--stone); padding:.4rem .9rem; font-size:.78rem; }
+
+  nav.tabs{ display:flex; gap:0; background:var(--dark); padding:0 2rem; }
+  nav.tabs button{
+    background:none; border:none; color:var(--stone); padding:.9rem 1.3rem; font-size:.85rem;
+    letter-spacing:.03em; border-bottom:2px solid transparent;
+  }
+  nav.tabs button.active{ color:var(--gold); border-bottom-color:var(--gold); }
+
+  main{ max-width:1100px; margin:0 auto; padding:2rem; }
+  .panel{ display:none; }
+  .panel.active{ display:block; }
+
+  .panel-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:1.2rem; }
+  .btn-primary{
+    background:var(--forest); color:var(--ivory); border:none; padding:.65rem 1.2rem; font-size:.85rem; letter-spacing:.02em;
+  }
+  .btn-secondary{ background:none; border:1px solid var(--charcoal); color:var(--charcoal); padding:.55rem 1rem; font-size:.8rem; }
+  .btn-danger{ background:none; border:1px solid var(--danger); color:var(--danger); padding:.4rem .8rem; font-size:.75rem; }
+
+  /* ---- Product cards ---- */
+  .p-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(230px,1fr)); gap:1rem; }
+  .p-card{ background:#fff; border:1px solid #e4ddce; }
+  .p-card img{ width:100%; height:140px; object-fit:cover; display:block; background:#eee; }
+  .p-card .p-body{ padding:.9rem 1rem; }
+  .p-card .p-name{ font-family:var(--serif); font-size:1.15rem; margin-bottom:.15rem; }
+  .p-card .p-meta{ font-size:.72rem; color:#8a8375; text-transform:uppercase; letter-spacing:.05em; margin-bottom:.5rem; }
+  .p-card .p-inactive{ color:var(--danger); }
+  .p-card .p-actions{ display:flex; gap:.5rem; margin-top:.6rem; }
+  .p-card .p-actions button{ flex:1; padding:.4rem; font-size:.75rem; border:1px solid #d8d0c2; background:none; }
+
+  /* ---- Orders ---- */
+  .order-card{ background:#fff; border:1px solid #e4ddce; padding:1rem 1.2rem; margin-bottom:.9rem; }
+  .order-top{ display:flex; flex-wrap:wrap; gap:.8rem 1.5rem; align-items:center; justify-content:space-between; }
+  .order-id{ font-size:.72rem; color:#8a8375; }
+  .order-customer{ font-family:var(--serif); font-size:1.1rem; }
+  .order-meta{ font-size:.8rem; color:#555; }
+  .order-items{ margin:.7rem 0 0; padding-left:1.1rem; font-size:.85rem; }
+  .status-select{ padding:.35rem .6rem; border:1px solid var(--gold-soft); background:var(--ivory); font-size:.78rem; }
+  .empty-state{ color:#8a8375; font-size:.9rem; padding:2rem 0; text-align:center; }
+
+  /* ---- Modal form ---- */
+  .modal-overlay{
+    display:none; position:fixed; inset:0; background:rgba(10,13,11,.55); z-index:50;
+    align-items:flex-start; justify-content:center; padding:3vh 1rem; overflow-y:auto;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal-box{ background:#fff; width:min(560px, 100%); padding:1.8rem; margin-top:2vh; }
+  .modal-box h2{ font-size:1.4rem; margin-bottom:1.1rem; }
+  .form-row{ margin-bottom:.85rem; }
+  .form-row label{ display:block; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; color:#8a8375; margin-bottom:.3rem; }
+  .form-row input, .form-row select, .form-row textarea{
+    width:100%; padding:.6rem .7rem; border:1px solid #d8d0c2; background:var(--ivory);
+  }
+  .form-grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:.85rem; }
+  .form-actions{ display:flex; gap:.7rem; justify-content:flex-end; margin-top:1.3rem; }
+  .checkbox-row{ display:flex; align-items:center; gap:.5rem; font-size:.85rem; }
+  .checkbox-row input{ width:auto; }
+  .toast{
+    position:fixed; bottom:1.5rem; right:1.5rem; background:var(--forest); color:var(--ivory);
+    padding:.8rem 1.2rem; font-size:.85rem; z-index:100; opacity:0; transform:translateY(10px);
+    transition:opacity .3s, transform .3s; pointer-events:none;
+  }
+  .toast.show{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ===== Login ===== -->
+<div id="loginScreen">
+  <div class="login-card">
+    <h1>TITRITE HOUSE</h1>
+    <p>Espace administration</p>
+    <input type="password" id="tokenInput" placeholder="Mot de passe admin" autocomplete="off">
+    <button id="loginBtn">Se connecter</button>
+    <div class="login-error" id="loginError"></div>
+  </div>
+</div>
+
+<!-- ===== App ===== -->
+<div id="app">
+  <header class="admin-header">
+    <div class="brand">TITRITE <span>HOUSE</span> — Admin</div>
+    <button id="logoutBtn">Déconnexion</button>
+  </header>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="products">Produits</button>
+    <button class="tab-btn" data-tab="orders">Commandes</button>
+  </nav>
+
+  <main>
+    <!-- Products panel -->
+    <section class="panel active" id="panel-products">
+      <div class="panel-head">
+        <h2>Catalogue</h2>
+        <button class="btn-primary" id="newProductBtn">+ Nouveau produit</button>
+      </div>
+      <div class="p-grid" id="productGrid"></div>
+    </section>
+
+    <!-- Orders panel -->
+    <section class="panel" id="panel-orders">
+      <div class="panel-head">
+        <h2>Commandes clients</h2>
+        <button class="btn-secondary" id="refreshOrdersBtn">Actualiser</button>
+      </div>
+      <div id="ordersList"></div>
+    </section>
+  </main>
+</div>
+
+<!-- ===== Product form modal ===== -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-box">
+    <h2 id="productModalTitle">Nouveau produit</h2>
+    <input type="hidden" id="f_id">
+    <div class="form-row">
+      <label>Identifiant (slug) — unique, sans espaces</label>
+      <input id="f_slug" placeholder="ex : cardamome">
+    </div>
+    <div class="form-grid-2">
+      <div class="form-row"><label>Nom (Anglais) *</label><input id="f_name_en"></div>
+      <div class="form-row"><label>Nom (Français)</label><input id="f_name_fr"></div>
+    </div>
+    <div class="form-grid-2">
+      <div class="form-row"><label>Nom (Arabe)</label><input id="f_name_ar" dir="rtl"></div>
+      <div class="form-row">
+        <label>Catégorie</label>
+        <select id="f_category">
+          <option value="spice">Épice</option>
+          <option value="natural">Produit naturel</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row"><label>URL de l'image</label><input id="f_image_url" placeholder="https://..."></div>
+    <div class="form-row"><label>Description (Anglais)</label><textarea id="f_description_en" rows="2"></textarea></div>
+    <div class="form-row"><label>Description (Français)</label><textarea id="f_description_fr" rows="2"></textarea></div>
+    <div class="form-row"><label>Description (Arabe)</label><textarea id="f_description_ar" rows="2" dir="rtl"></textarea></div>
+    <div class="form-grid-2">
+      <div class="form-row"><label>Prix (optionnel)</label><input id="f_price" type="number" step="0.01"></div>
+      <div class="form-row"><label>Devise</label><input id="f_currency" value="MAD"></div>
+    </div>
+    <div class="checkbox-row">
+      <input type="checkbox" id="f_is_active" checked>
+      <label for="f_is_active">Produit visible sur le site</label>
+    </div>
+    <div class="form-actions">
+      <button class="btn-secondary" id="cancelProductBtn" type="button">Annuler</button>
+      <button class="btn-primary" id="saveProductBtn" type="button">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const API_BASE = 'https://titritehouse.sssdsssb00.workers.dev';
+let ADMIN_TOKEN = sessionStorage.getItem('th_admin_token') || '';
+
+function showToast(msg, isError){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = isError ? '#a33' : 'var(--forest)';
+  t.classList.add('show');
+  setTimeout(()=> t.classList.remove('show'), 2600);
+}
+
+async function api(path, options = {}){
+  const res = await fetch(`${API_BASE}${path}`, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Admin-Token': ADMIN_TOKEN,
+      ...(options.headers || {})
+    }
+  });
+  if (res.status === 401) throw new Error('unauthorized');
+  if (!res.ok) throw new Error('request_failed');
+  return res.status === 204 ? null : res.json();
+}
+
+/* ---------- Login ---------- */
+async function tryLogin(token){
+  ADMIN_TOKEN = token;
+  try{
+    await api('/api/admin/products');
+    sessionStorage.setItem('th_admin_token', token);
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    loadProducts();
+    loadOrders();
+  } catch(err){
+    document.getElementById('loginError').textContent = 'Mot de passe incorrect.';
+    ADMIN_TOKEN = '';
+  }
+}
+document.getElementById('loginBtn').addEventListener('click', ()=>{
+  const val = document.getElementById('tokenInput').value.trim();
+  if(val) tryLogin(val);
+});
+document.getElementById('tokenInput').addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter') document.getElementById('loginBtn').click();
+});
+document.getElementById('logoutBtn').addEventListener('click', ()=>{
+  sessionStorage.removeItem('th_admin_token');
+  location.reload();
+});
+if(ADMIN_TOKEN) tryLogin(ADMIN_TOKEN);
+
+/* ---------- Tabs ---------- */
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(`panel-${btn.dataset.tab}`).classList.add('active');
+  });
+});
+
+/* ---------- Products ---------- */
+let productsCache = [];
+
+async function loadProducts(){
+  try{
+    productsCache = await api('/api/admin/products');
+    renderProducts();
+  } catch(err){
+    showToast('Impossible de charger les produits.', true);
+  }
+}
+
+function renderProducts(){
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = '';
+  if(productsCache.length === 0){
+    grid.innerHTML = '<div class="empty-state">Aucun produit pour le moment.</div>';
+    return;
+  }
+  productsCache.forEach(p=>{
+    const card = document.createElement('div');
+    card.className = 'p-card';
+    card.innerHTML = `
+      <img src="${p.image_url || ''}" alt="${p.name_en}" onerror="this.style.opacity=0">
+      <div class="p-body">
+        <div class="p-name">${p.name_en}</div>
+        <div class="p-meta ${p.is_active ? '' : 'p-inactive'}">${p.category} · ${p.is_active ? 'Visible' : 'Masqué'}</div>
+        <div class="p-actions">
+          <button data-edit="${p.id}">Modifier</button>
+          <button data-delete="${p.id}" style="color:#a33;">Supprimer</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  grid.querySelectorAll('[data-edit]').forEach(b=> b.addEventListener('click', ()=> openProductModal(b.dataset.edit)));
+  grid.querySelectorAll('[data-delete]').forEach(b=> b.addEventListener('click', ()=> deleteProduct(b.dataset.delete)));
+}
+
+const productModal = document.getElementById('productModal');
+function openProductModal(id){
+  const p = id ? productsCache.find(x=>x.id===id) : null;
+  document.getElementById('productModalTitle').textContent = p ? 'Modifier le produit' : 'Nouveau produit';
+  document.getElementById('f_id').value = p ? p.id : '';
+  document.getElementById('f_slug').value = p ? p.slug : '';
+  document.getElementById('f_name_en').value = p ? p.name_en : '';
+  document.getElementById('f_name_fr').value = p ? (p.name_fr || '') : '';
+  document.getElementById('f_name_ar').value = p ? (p.name_ar || '') : '';
+  document.getElementById('f_category').value = p ? p.category : 'spice';
+  document.getElementById('f_image_url').value = p ? (p.image_url || '') : '';
+  document.getElementById('f_description_en').value = p ? (p.description_en || '') : '';
+  document.getElementById('f_description_fr').value = p ? (p.description_fr || '') : '';
+  document.getElementById('f_description_ar').value = p ? (p.description_ar || '') : '';
+  document.getElementById('f_price').value = p && p.price != null ? p.price : '';
+  document.getElementById('f_currency').value = p ? (p.currency || 'MAD') : 'MAD';
+  document.getElementById('f_is_active').checked = p ? p.is_active : true;
+  productModal.classList.add('open');
+}
+document.getElementById('newProductBtn').addEventListener('click', ()=> openProductModal(null));
+document.getElementById('cancelProductBtn').addEventListener('click', ()=> productModal.classList.remove('open'));
+productModal.addEventListener('click', (e)=>{ if(e.target === productModal) productModal.classList.remove('open'); });
+
+document.getElementById('saveProductBtn').addEventListener('click', async ()=>{
+  const id = document.getElementById('f_id').value;
+  const payload = {
+    slug: document.getElementById('f_slug').value.trim(),
+    name_en: document.getElementById('f_name_en').value.trim(),
+    name_fr: document.getElementById('f_name_fr').value.trim(),
+    name_ar: document.getElementById('f_name_ar').value.trim(),
+    category: document.getElementById('f_category').value,
+    image_url: document.getElementById('f_image_url').value.trim(),
+    description_en: document.getElementById('f_description_en').value.trim(),
+    description_fr: document.getElementById('f_description_fr').value.trim(),
+    description_ar: document.getElementById('f_description_ar').value.trim(),
+    price: document.getElementById('f_price').value ? Number(document.getElementById('f_price').value) : null,
+    currency: document.getElementById('f_currency').value.trim() || 'MAD',
+    is_active: document.getElementById('f_is_active').checked
+  };
+  if(!payload.slug || !payload.name_en){
+    showToast('Identifiant et nom (anglais) sont obligatoires.', true);
+    return;
+  }
+  try{
+    if(id){
+      await api(`/api/admin/products/${id}`, { method:'PUT', body: JSON.stringify(payload) });
+      showToast('Produit mis à jour.');
+    } else {
+      await api('/api/admin/products', { method:'POST', body: JSON.stringify(payload) });
+      showToast('Produit publié.');
+    }
+    productModal.classList.remove('open');
+    loadProducts();
+  } catch(err){
+    showToast("Erreur lors de l'enregistrement.", true);
+  }
+});
+
+async function deleteProduct(id){
+  if(!confirm('Supprimer définitivement ce produit ?')) return;
+  try{
+    await api(`/api/admin/products/${id}`, { method:'DELETE' });
+    showToast('Produit supprimé.');
+    loadProducts();
+  } catch(err){
+    showToast('Erreur lors de la suppression.', true);
+  }
+}
+
+/* ---------- Orders ---------- */
+const STATUS_OPTIONS = ['new','confirmed','shipped','completed','cancelled'];
+const STATUS_LABELS = { new:'Nouvelle', confirmed:'Confirmée', shipped:'Expédiée', completed:'Terminée', cancelled:'Annulée' };
+
+async function loadOrders(){
+  try{
+    const orders = await api('/api/admin/orders');
+    renderOrders(orders);
+  } catch(err){
+    showToast('Impossible de charger les commandes.', true);
+  }
+}
+
+function renderOrders(orders){
+  const list = document.getElementById('ordersList');
+  list.innerHTML = '';
+  if(orders.length === 0){
+    list.innerHTML = '<div class="empty-state">Aucune commande pour le moment.</div>';
+    return;
+  }
+  orders.forEach(o=>{
+    const date = new Date(o.created_at).toLocaleString('fr-FR');
+    const card = document.createElement('div');
+    card.className = 'order-card';
+    card.innerHTML = `
+      <div class="order-top">
+        <div>
+          <div class="order-customer">${o.customer_name || 'Client (via WhatsApp)'}</div>
+          <div class="order-meta">${o.phone || ''} ${o.city ? '· ' + o.city : ''} · ${date}</div>
+        </div>
+        <select class="status-select" data-id="${o.id}">
+          ${STATUS_OPTIONS.map(s=>`<option value="${s}" ${s===o.status?'selected':''}>${STATUS_LABELS[s]}</option>`).join('')}
+        </select>
+      </div>
+      <ul class="order-items">
+        ${o.items.map(it=>`<li>${it.product_name} — Qté : ${it.quantity}</li>`).join('') || '<li>Aucun article</li>'}
+      </ul>
+      ${o.notes ? `<div class="order-meta" style="margin-top:.5rem;">Note : ${o.notes}</div>` : ''}
+    `;
+    list.appendChild(card);
+  });
+  list.querySelectorAll('.status-select').forEach(sel=>{
+    sel.addEventListener('change', async ()=>{
+      try{
+        await api(`/api/admin/orders/${sel.dataset.id}`, { method:'PATCH', body: JSON.stringify({ status: sel.value }) });
+        showToast('Statut mis à jour.');
+      } catch(err){
+        showToast('Erreur lors de la mise à jour du statut.', true);
+      }
+    });
+  });
+}
+document.getElementById('refreshOrdersBtn').addEventListener('click', loadOrders);
+</script>
+</body>
+</html>

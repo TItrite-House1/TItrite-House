@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TITRITE HOUSE — Authentic Moroccan Spices &amp; Natural Products</title>
+<meta name="description" content="Discover authentic Moroccan spices and natural products from TITRITE HOUSE.">
+<meta property="og:title" content="TITRITE HOUSE — Authentic Moroccan Spices &amp; Natural Products">
+<meta property="og:description" content="Discover authentic Moroccan spices and natural products from TITRITE HOUSE.">
+<meta property="og:image" content="https://titrite-house1.github.io/TItrite-House/1.jpeg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TITRITE HOUSE",
+  "description": "Authentic Moroccan spices and natural products.",
+  "url": "https://titritehouse.example"
+}
+</script>
+<style>
+  :root{
+    --forest:#0B2117;
+    --dark:#0A0D0B;
+    --charcoal:#151713;
+    --ivory:#F4F0E7;
+    --stone:#D8D0C2;
+    --gold:#B08D45;
+    --gold-soft: rgba(176,141,69,0.35);
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'Inter', sans-serif;
+    --arabic: 'Noto Naskh Arabic', serif;
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top: 84px;}
+  #home, #story, #collection, #spices, #natural, #contact{ scroll-margin-top: 84px; }
+  html,body{margin:0;padding:0;background:var(--ivory);}
+  .page-wrap{overflow-x:hidden;}
+  body{
+    font-family: var(--sans);
+    color: var(--charcoal);
+    -webkit-font-smoothing: antialiased;
+    background: var(--ivory);
+  }
+  html[dir="rtl"] body, html[dir="rtl"] .font-serif-el { font-family: var(--arabic); }
+  html[dir="rtl"] { text-align: right; }
+
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer;}
+
+  ::selection{ background: var(--gold-soft); color: var(--dark); }
+
+  .font-serif{ font-family: var(--serif); }
+  .tracking-wide-sm{ letter-spacing: 0.08em; }
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline: 1.5px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Custom cursor (desktop only) ---------- */
+  .cursor-dot{
+    position:fixed; top:0; left:0; width:10px; height:10px; border-radius:50%;
+    background: var(--gold); pointer-events:none; z-index:9999;
+    transform: translate(-50%,-50%);
+    transition: width .25s var(--ease), height .25s var(--ease), background .25s var(--ease), opacity .25s var(--ease);
+    mix-blend-mode: difference;
+    opacity: 0;
+  }
+  body.cursor-ready .cursor-dot{ opacity: 1; }
+  .cursor-dot.is-media{ width:52px; height:52px; background: transparent; border:1px solid var(--ivory); }
+  .cursor-dot.is-cta{ width:16px; height:16px; }
+  @media (hover:none), (pointer:coarse){ .cursor-dot{ display:none !important; } }
+
+  /* ---------- Header ---------- */
+  header.site-header{
+    position: fixed; top:0; left:0; right:0; z-index: 500;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 28px 5vw;
+    background: transparent;
+    transition: background .5s var(--ease), padding .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  header.site-header.scrolled{
+    background: rgba(10,13,11,0.86);
+    backdrop-filter: blur(10px);
+    padding: 16px 5vw;
+    box-shadow: 0 1px 0 rgba(216,208,194,0.08);
+  }
+  .brand-mark{
+    font-family: var(--serif); font-weight:500; font-size: 1.35rem; letter-spacing:0.14em;
+    color: var(--ivory); display:flex; align-items:center; gap:.7rem;
+  }
+  .brand-mark img{ height: 34px; width:auto; display:block; }
+  .footer-brand img{ height: 30px; width:auto; display:block; margin-bottom:.3rem; }
+  .whatsapp-btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+    background:#25D366; color:#0A0D0B; border:none; font-size:.78rem; letter-spacing:.06em;
+    padding: .95rem 1.6rem; width:100%; transition: background .3s var(--ease), transform .3s var(--ease);
+  }
+  .whatsapp-btn:hover{ background:#1ebd5a; }
+  .whatsapp-btn svg{ width:18px; height:18px; flex-shrink:0; }
+  .contact-block{ display:flex; align-items:flex-start; gap:.6rem; font-size:.85rem; color: var(--stone); font-weight:300; line-height:1.6; margin-bottom:1rem; }
+  .contact-block svg{ width:16px; height:16px; margin-top:3px; flex-shrink:0; color: var(--gold); }
+  nav.primary-nav{ display:flex; gap: 2.4rem; }
+  nav.primary-nav a{
+    font-size: 0.78rem; letter-spacing: 0.12em; color: var(--stone);
+    position:relative; padding-bottom:4px; font-weight:400;
+  }
+  nav.primary-nav a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background: var(--gold);
+    transition: width .35s var(--ease);
+  }
+  nav.primary-nav a:hover::after{ width:100%; }
+  .header-actions{ display:flex; align-items:center; gap: 1.4rem; }
+  .icon-btn{ background:none; border:none; color: var(--ivory); display:flex; align-items:center; padding:4px; }
+  .icon-btn svg{ width:19px; height:19px; }
+  .lang-switch{ display:flex; gap:.55rem; font-size:.72rem; letter-spacing:.08em; color: var(--stone); }
+  .lang-switch button{ background:none; border:none; color: var(--stone); padding:2px 3px; }
+  .lang-switch button.active{ color: var(--gold); }
+  .cart-count{
+    position:absolute; top:-6px; right:-8px; background: var(--gold); color: var(--dark);
+    font-size:.62rem; width:15px; height:15px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-weight:600;
+  }
+  .icon-wrap{ position:relative; }
+
+  .mobile-toggle{ display:none; }
+
+  @media (max-width: 900px){
+    header.site-header{ padding: 18px 4.5vw; }
+    header.site-header.scrolled{ padding: 14px 4.5vw; }
+    .header-actions{ flex-shrink:0; gap:1rem; }
+    .icon-btn, .icon-wrap, .mobile-toggle{ flex-shrink:0; }
+    .brand-mark{ min-width:0; flex-shrink:1; gap:.5rem; font-size:1.05rem; letter-spacing:.08em; }
+    .brand-mark img{ height:28px; flex-shrink:0; }
+    .brand-mark span{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    nav.primary-nav{
+      position: fixed; inset:0; background: var(--dark); flex-direction:column; justify-content:center;
+      align-items: center; gap:1.8rem; transform: translateY(-100%); transition: transform .5s var(--ease);
+      z-index: 400;
+    }
+    nav.primary-nav.open{ transform: translateY(0); }
+    nav.primary-nav a{ font-size:1.1rem; }
+    .mobile-toggle{ display:flex; background:none; border:none; color:var(--ivory); z-index:600; padding:4px; }
+    .mobile-toggle svg{ width:20px; height:20px; flex-shrink:0; }
+    .mobile-toggle .m-line{ transition: transform .35s var(--ease), opacity .35s var(--ease); transform-origin:center; }
+    .mobile-toggle.active .m-line-1{ transform: translateY(6px) rotate(45deg); }
+    .mobile-toggle.active .m-line-2{ opacity:0; }
+    .mobile-toggle.active .m-line-3{ transform: translateY(-6px) rotate(-45deg); }
+    .lang-switch{ display:none; }
+  }
+  @media (max-width: 380px){
+    .brand-mark{ font-size:.92rem; letter-spacing:.04em; }
+    .header-actions{ gap:.65rem; }
+  }
+  body.no-scroll{ overflow:hidden; height:100%; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position: relative; height: 100vh; min-height: 560px; width:100%; overflow:hidden;
+    background: var(--dark);
+  }
+  .hero video, .hero .hero-fallback{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;
+    transform: scale(1.04);
+  }
+  .hero-overlay{
+    position:absolute; inset:0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.10) 45%, rgba(5,15,10,0.70) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:5; height:100%; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; text-align:center; padding: 0 6vw;
+  }
+  .hero-logo{
+    font-family: var(--serif); color: var(--stone); letter-spacing:.3em; font-size:.8rem; margin-bottom: 2rem;
+    opacity:0; transform: translateY(14px);
+  }
+  .hero-title{
+    font-family: var(--serif); color: var(--ivory); font-weight:400; font-style:italic;
+    font-size: clamp(2.6rem, 6.2vw, 5.4rem); line-height:1.05; max-width: 16ch;
+    opacity:0; transform: translateY(22px);
+  }
+  .hero-sub{
+    font-family: var(--sans); color: var(--stone); font-weight:300; font-size: clamp(.95rem,1.4vw,1.15rem);
+    max-width: 42ch; margin: 1.6rem 0 2.6rem; line-height:1.7;
+    opacity:0; transform: translateY(18px);
+  }
+  .hero-ctas{ display:flex; gap:1.2rem; flex-wrap:wrap; justify-content:center; opacity:0; transform: translateY(16px); }
+  .btn{
+    font-size:.78rem; letter-spacing:.1em; padding: 1rem 2.1rem; border:1px solid var(--gold);
+    color: var(--ivory); background:transparent; transition: background .4s var(--ease), color .4s var(--ease);
+  }
+  .btn.filled{ background: var(--gold); color: var(--dark); }
+  .btn:hover{ background: var(--gold); color: var(--dark); }
+  .btn.ghost{ border-color: rgba(244,240,231,0.35); }
+  .btn.ghost:hover{ background: var(--ivory); color: var(--dark); border-color: var(--ivory); }
+
+  .scroll-cue{
+    position:absolute; bottom: 2.6rem; left:50%; transform: translateX(-50%); z-index:5;
+    display:flex; flex-direction:column; align-items:center; gap:.6rem; color: var(--stone);
+    font-size:.62rem; letter-spacing:.22em; opacity:0;
+  }
+  .scroll-cue .line{ width:1px; height:34px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollLine 2.2s var(--ease) infinite; }
+  @keyframes scrollLine{ 0%{ transform: scaleY(0); transform-origin: top;} 45%{ transform: scaleY(1); transform-origin: top;} 55%{ transform: scaleY(1); transform-origin: bottom;} 100%{ transform: scaleY(0); transform-origin: bottom;} }
+
+  /* ---------- Sections generic ---------- */
+  section{ position:relative; }
+  .section-pad{ padding: clamp(4.5rem, 9vw, 8.5rem) 6vw; }
+  .max-wrap{ max-width: 1360px; margin:0 auto; }
+  .reveal{ opacity:0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+
+  .eyebrow{ font-size:.72rem; letter-spacing:.18em; color: var(--gold); font-weight:500; }
+  h2.section-title{
+    font-family: var(--serif); font-weight:400; font-size: clamp(2rem, 4vw, 3.2rem); line-height:1.12; margin:.6rem 0 0;
+  }
+  p.section-lede{ color:#4b4238; font-size:1.02rem; line-height:1.85; max-width: 62ch; font-weight:300; }
+
+  /* Brand intro */
+  .intro-grid{ display:grid; grid-template-columns: 1.05fr 1fr; gap: 4.5rem; align-items:center; }
+  .intro-media{ position:relative; overflow:hidden; aspect-ratio: 4/5; }
+  .intro-media img{ width:100%; height:100%; object-fit:cover; transition: transform 1.4s var(--ease); }
+  .intro-media:hover img{ transform: scale(1.045); }
+  .intro-arch{
+    position:absolute; inset:-1px; border: 1px solid var(--gold-soft); pointer-events:none;
+  }
+  @media (max-width: 880px){ .intro-grid{ grid-template-columns: 1fr; gap:2.4rem; } }
+
+  /* Collection grid */
+  .collection-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:2rem; flex-wrap:wrap; margin-bottom: 3.2rem; }
+  .product-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--stone);
+  }
+  @media (max-width: 980px){ .product-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 600px){ .product-grid{ grid-template-columns: 1fr; } }
+  .product-card{
+    background: var(--ivory); padding: 0; display:flex; flex-direction:column; position:relative; overflow:hidden;
+    transition: transform .5s var(--ease);
+  }
+  .product-card .p-media{ position:relative; aspect-ratio: 1/1.05; overflow:hidden; background:#e9e4d8; }
+  .product-card .p-media img{ width:100%; height:100%; object-fit:cover; transition: transform .8s var(--ease); }
+  .product-card:hover .p-media img{ transform: scale(1.03); }
+  .product-card .gold-edge{ position:absolute; left:0; right:0; bottom:0; height:2px; background: var(--gold); transform: scaleX(0); transform-origin:left; transition: transform .5s var(--ease); }
+  .product-card:hover .gold-edge{ transform: scaleX(1); }
+  .product-card:hover{ transform: translateY(-4px); }
+  .p-body{ padding: 1.5rem 1.6rem 1.8rem; display:flex; flex-direction:column; gap:.35rem; flex:1; }
+  .p-name{ font-family: var(--serif); font-size:1.5rem; }
+  .p-name-fr{ font-size:.76rem; letter-spacing:.06em; color:#7a7061; }
+  .p-name-ar{ font-family: var(--arabic); font-size:1rem; color:#7a7061; direction:rtl; }
+  .p-desc{ font-size:.85rem; color:#5a5145; line-height:1.6; font-weight:300; margin: .4rem 0 .7rem; }
+  .p-foot{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:.6rem; border-top:1px solid rgba(21,23,19,0.08); }
+  .p-price{ font-size:.82rem; letter-spacing:.04em; color:#5a5145; }
+  .p-discover{ font-size:.72rem; letter-spacing:.1em; color: var(--dark); border-bottom:1px solid var(--gold); padding-bottom:2px; background:none; border-top:none; border-left:none; border-right:none; }
+
+  /* Spotlight sections */
+  .spotlight{ display:grid; grid-template-columns: 1.15fr .85fr; min-height: 92vh; }
+  .spotlight.reverse{ direction: ltr; }
+  .spotlight.reverse .spot-media{ order:2; }
+  .spot-media{ position:relative; overflow:hidden; }
+  .spot-media img{ width:100%; height:100%; object-fit:cover; }
+  .spot-text{ display:flex; flex-direction:column; justify-content:center; padding: 5vw; }
+  .spotlight.dark{ background: var(--dark); color: var(--ivory); }
+  .spotlight.dark .spot-text p{ color: var(--stone); }
+  .spotlight.forest{ background: var(--forest); color: var(--ivory); }
+  .spotlight.forest .spot-text p{ color: var(--stone); }
+  .spot-text .eyebrow{ color: var(--gold); margin-bottom:.7rem; }
+  .spot-text h3{ font-family: var(--serif); font-size: clamp(2.4rem,4.4vw,4rem); font-weight:400; margin:0 0 1.1rem; }
+  .spot-text p{ font-weight:300; line-height:1.85; max-width:42ch; color:#4b4238; margin-bottom:1.8rem; }
+  @media (max-width: 880px){
+    .spotlight, .spotlight.reverse{ grid-template-columns:1fr; }
+    .spotlight.reverse .spot-media{ order:0; }
+    .spot-media{ height:52vh; }
+    .spot-text{ padding: 3rem 6vw; }
+  }
+
+  /* Three product composition + Harissa */
+  .duo-feature{ display:grid; grid-template-columns: 1fr 1fr; gap:2px; background: var(--stone); }
+  .duo-panel{ background: var(--ivory); padding: 4.5vw; display:flex; flex-direction:column; justify-content:center; }
+  .duo-media{ position:relative; overflow:hidden; aspect-ratio: 4/5; }
+  .duo-media img{ width:100%; height:100%; object-fit:cover; }
+  @media (max-width: 880px){ .duo-feature{ grid-template-columns:1fr; } }
+
+  /* Heritage */
+  .heritage{ position:relative; height: 78vh; min-height:520px; overflow:hidden; }
+  .heritage img{ width:100%; height:100%; object-fit:cover; }
+  .heritage::before{ content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(11,33,23,0.15), rgba(10,13,11,0.75)); }
+  .heritage-content{ position:absolute; inset:0; display:flex; align-items:flex-end; padding: 4vw 6vw; }
+  .heritage-content .inner{ max-width: 640px; }
+  .heritage-content .eyebrow{ color: var(--gold); }
+  .heritage-content h2{ font-family: var(--serif); color: var(--ivory); font-size: clamp(2.2rem,4.4vw,3.6rem); font-weight:400; margin:.6rem 0 1rem; }
+  .heritage-content p{ color: var(--stone); font-weight:300; line-height:1.8; }
+
+  /* Natural products editorial */
+  .natural-editorial{ display:grid; grid-template-columns: repeat(12, 1fr); gap: 1.4rem; }
+  .nat-item{ position:relative; overflow:hidden; }
+  .nat-item img{ width:100%; height:100%; object-fit:cover; transition: transform 1s var(--ease); }
+  .nat-item:hover img{ transform: scale(1.04); }
+  .nat-a{ grid-column: span 7; aspect-ratio: 16/11; }
+  .nat-b{ grid-column: span 5; aspect-ratio: 3/4; }
+  .nat-caption{ position:absolute; left:1.2rem; bottom:1.1rem; color: var(--ivory); font-family: var(--serif); font-size:1.3rem; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+  @media (max-width: 880px){ .nat-a, .nat-b{ grid-column: span 12; } }
+
+  /* Footer */
+  footer{ background: var(--dark); color: var(--stone); padding: 5rem 6vw 2rem; }
+  .footer-grid{ display:grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 2.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(216,208,194,0.12); }
+  .footer-grid h4{ color: var(--ivory); font-size:.78rem; letter-spacing:.1em; margin-bottom:1.1rem; font-weight:500; }
+  .footer-grid a, .footer-grid p{ display:block; font-size:.85rem; color: var(--stone); margin-bottom:.6rem; font-weight:300; }
+  .footer-grid a:hover{ color: var(--gold); }
+  .footer-brand{ font-family: var(--serif); color: var(--ivory); font-size:1.4rem; letter-spacing:.1em; margin-bottom:1rem; }
+  .newsletter-form{ display:flex; border-bottom:1px solid var(--stone); margin-top:.8rem; }
+  .newsletter-form input{ background:none; border:none; color:var(--ivory); padding:.6rem 0; flex:1; font-size:.85rem; }
+  .newsletter-form input::placeholder{ color:#8a8375; }
+  .newsletter-form button{ background:none; border:none; color: var(--gold); font-size:.78rem; letter-spacing:.06em; }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:1.6rem; flex-wrap:wrap; gap:1rem; font-size:.75rem; color:#8a8375; }
+  @media (max-width: 880px){ .footer-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){
+    .footer-grid{ grid-template-columns: 1fr; gap: 2.2rem; }
+    .footer-bottom{ justify-content:center; text-align:center; }
+  }
+
+  /* Cart Drawer */
+  .drawer-overlay{ position:fixed; inset:0; background: rgba(10,13,11,0.55); opacity:0; pointer-events:none; transition: opacity .4s var(--ease); z-index:700; }
+  .drawer-overlay.open{ opacity:1; pointer-events:all; }
+  .drawer{
+    position:fixed; top:0; right:0; height:100%; width: min(420px, 92vw); background: var(--ivory); z-index:701;
+    transform: translateX(100%); transition: transform .5s var(--ease); display:flex; flex-direction:column;
+  }
+  html[dir="rtl"] .drawer{ right:auto; left:0; transform: translateX(-100%); }
+  .drawer.open{ transform: translateX(0); }
+  .drawer-head{ display:flex; justify-content:space-between; align-items:center; padding: 1.6rem; border-bottom:1px solid rgba(21,23,19,0.1); }
+  .drawer-head h3{ font-family: var(--serif); font-size:1.4rem; margin:0; }
+  .drawer-body{ flex:1; overflow-y:auto; padding: 1.2rem 1.6rem; }
+  .cart-item{ display:flex; gap:1rem; padding: 1.1rem 0; border-bottom: 1px solid rgba(21,23,19,0.08); }
+  .cart-item img{ width:70px; height:70px; object-fit:cover; }
+  .cart-item .ci-name{ font-family: var(--serif); font-size:1.05rem; }
+  .cart-item .ci-meta{ font-size:.78rem; color:#7a7061; margin-top:.2rem; }
+  .qty-ctrl{ display:flex; align-items:center; gap:.6rem; margin-top:.5rem; }
+  .qty-ctrl button{ background:none; border:1px solid var(--stone); width:22px; height:22px; font-size:.85rem; }
+  .cart-empty{ padding: 3rem 0; text-align:center; color:#7a7061; font-size:.9rem; }
+  .drawer-foot{ padding: 1.4rem 1.6rem 1.8rem; border-top:1px solid rgba(21,23,19,0.1); }
+  .drawer-foot .subtotal-row{ display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:1rem; color:#4b4238; }
+
+  /* Search overlay */
+  .search-overlay{
+    position:fixed; inset:0; background: rgba(10,13,11,0.97); z-index:800; display:flex; flex-direction:column;
+    align-items:center; padding-top: 12vh; opacity:0; pointer-events:none; transition: opacity .4s var(--ease);
+  }
+  .search-overlay.open{ opacity:1; pointer-events:all; }
+  .search-overlay input{
+    background:none; border:none; border-bottom:1px solid var(--gold); color: var(--ivory);
+    font-family: var(--serif); font-size: clamp(1.6rem,4vw,2.6rem); width:min(680px,84vw); text-align:center;
+    padding: .6rem 0;
+  }
+  .search-overlay input::placeholder{ color:#5a6a5e; }
+  .search-close{ position:absolute; top:2rem; right:2rem; background:none; border:none; color:var(--ivory); }
+  html[dir="rtl"] .search-close{ right:auto; left:2rem; }
+  .search-results{ margin-top:2.4rem; width:min(680px,84vw); max-height:44vh; overflow-y:auto; }
+  .sr-item{ display:flex; gap:1rem; align-items:center; padding:.8rem 0; border-bottom:1px solid rgba(216,208,194,0.1); color: var(--stone); }
+  .sr-item img{ width:44px; height:44px; object-fit:cover; }
+
+  /* Product detail modal */
+  .modal-overlay{ position:fixed; inset:0; background: rgba(10,13,11,0.7); z-index:750; opacity:0; pointer-events:none; transition:opacity .4s var(--ease); display:flex; align-items:center; justify-content:center; padding:4vw; }
+  .modal-overlay.open{ opacity:1; pointer-events:all; }
+  .modal-box{ background: var(--ivory); max-width: 980px; width:100%; max-height:88vh; overflow-y:auto; display:grid; grid-template-columns:1fr 1fr; transform: translateY(18px); transition: transform .4s var(--ease); }
+  .modal-overlay.open .modal-box{ transform: translateY(0); }
+  .modal-media{ aspect-ratio:1/1; overflow:hidden; }
+  .modal-media img{ width:100%; height:100%; object-fit:cover; }
+  .modal-info{ padding: 2.6rem; position:relative; }
+  .modal-close{ position:absolute; top:1.2rem; right:1.2rem; background:none; border:none; }
+  html[dir="rtl"] .modal-close{ right:auto; left:1.2rem; }
+  .modal-info h3{ font-family: var(--serif); font-size:2.1rem; margin:1.2rem 0 .2rem; }
+  .modal-info .m-fr{ color:#7a7061; font-size:.85rem; }
+  .modal-info .m-ar{ font-family: var(--arabic); direction:rtl; color:#7a7061; font-size:1.05rem; margin-top:.2rem; }
+  .modal-info .m-price{ font-family: var(--serif); font-size:1.3rem; margin: 1.2rem 0; color: var(--forest); }
+  .accordion-item{ border-top: 1px solid rgba(21,23,19,0.12); }
+  .accordion-item:last-child{ border-bottom: 1px solid rgba(21,23,19,0.12); }
+  .accordion-head{ width:100%; background:none; border:none; text-align:inherit; padding:.9rem 0; display:flex; justify-content:space-between; align-items:center; font-size:.85rem; letter-spacing:.05em; }
+  .accordion-panel{ max-height:0; overflow:hidden; transition: max-height .4s var(--ease); font-size:.85rem; color:#5a5145; line-height:1.7; font-weight:300; }
+  .accordion-panel > div{ padding-bottom: 1rem; }
+  .accordion-item.open .accordion-panel{ max-height: 220px; }
+  @media (max-width: 720px){ .modal-box{ grid-template-columns:1fr; } }
+
+  .footer-grid a.social-link{ display:inline-flex; align-items:center; gap:.6rem; }
+  .footer-grid a.social-link svg{ width:16px; height:16px; flex-shrink:0; }
+
+  /* Floating social bar */
+  .social-float{
+    position: fixed; right: 1.4rem; bottom: 1.6rem; z-index: 450;
+    display:flex; flex-direction:column; gap:.7rem;
+  }
+  html[dir="rtl"] .social-float{ right:auto; left: 1.4rem; }
+  .social-float a{
+    width: 42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background: rgba(10,13,11,0.75); backdrop-filter: blur(6px); color: var(--ivory);
+    border: 1px solid rgba(216,208,194,0.25); transition: background .3s var(--ease), transform .3s var(--ease), border-color .3s var(--ease);
+  }
+  .social-float a:hover{ background: var(--gold); color: var(--dark); border-color: var(--gold); transform: translateY(-2px); }
+  .social-float svg{ width:19px; height:19px; }
+  @media (max-width: 600px){ .social-float{ right:.9rem; bottom:5.4rem; } html[dir="rtl"] .social-float{ left:.9rem; } }
+
+  .sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+
+  /* ---------- Chat widget ---------- */
+  .chat-toggle{
+    position:fixed; right:1.6rem; bottom:1.6rem; z-index:80;
+    width:58px; height:58px; border-radius:50%; background: var(--gold); border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,0.35);
+    transition: transform .3s var(--ease), background .3s var(--ease);
+  }
+  .chat-toggle:hover{ transform: translateY(-2px) scale(1.04); }
+  .chat-toggle svg{ width:26px; height:26px; stroke: var(--dark); }
+  html[dir="rtl"] .chat-toggle{ right:auto; left:1.6rem; }
+
+  .chat-window{
+    position:fixed; right:1.6rem; bottom:5.6rem; z-index:80; width:min(360px,90vw); height:min(520px,72vh);
+    background: var(--dark); border:1px solid rgba(216,208,194,0.18); border-radius:16px; overflow:hidden;
+    display:flex; flex-direction:column; box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    opacity:0; transform: translateY(16px) scale(.98); pointer-events:none; transition: opacity .3s var(--ease), transform .3s var(--ease);
+  }
+  .chat-window.open{ opacity:1; transform: translateY(0) scale(1); pointer-events:auto; }
+  html[dir="rtl"] .chat-window{ right:auto; left:1.6rem; }
+
+  .chat-head{ display:flex; align-items:center; gap:.6rem; padding:.9rem 1rem; background:rgba(255,255,255,0.03); border-bottom:1px solid rgba(216,208,194,0.12); }
+  .chat-head img{ height:26px; width:auto; display:block; }
+  .chat-head span{ font-family: var(--serif); color: var(--ivory); font-size:1.05rem; }
+  .chat-close{ margin-inline-start:auto; background:none; border:none; color: var(--stone); cursor:pointer; font-size:1.1rem; line-height:1; padding:.3rem; }
+  .chat-close:hover{ color: var(--gold); }
+
+  .chat-body{ flex:1; overflow-y:auto; padding:1rem; display:flex; flex-direction:column; gap:.7rem; }
+  .chat-msg{ max-width:82%; padding:.6rem .85rem; border-radius:12px; font-size:.88rem; line-height:1.6; font-weight:300; }
+  .chat-msg.user{ align-self:flex-end; background: var(--gold); color: var(--dark); border-bottom-right-radius:3px; }
+  html[dir="rtl"] .chat-msg.user{ align-self:flex-start; border-bottom-right-radius:12px; border-bottom-left-radius:3px; }
+  .chat-msg.bot{ align-self:flex-start; background:rgba(255,255,255,0.06); color: var(--ivory); border-bottom-left-radius:3px; }
+  html[dir="rtl"] .chat-msg.bot{ align-self:flex-end; border-bottom-left-radius:12px; border-bottom-right-radius:3px; }
+  .chat-msg.typing{ color: var(--stone); font-style:italic; }
+
+  .chat-form{ display:flex; gap:.5rem; padding:.8rem; border-top:1px solid rgba(216,208,194,0.12); background:rgba(255,255,255,0.02); }
+  .chat-input{ flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(216,208,194,0.18); border-radius:10px; padding:.55rem .8rem; color: var(--ivory); font-size:.86rem; font-family:inherit; }
+  .chat-input::placeholder{ color: var(--stone); opacity:.7; }
+  .chat-input:focus{ outline:none; border-color: var(--gold); }
+  .chat-send{ background: var(--gold); border:none; border-radius:10px; padding:0 .9rem; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .chat-send:hover{ opacity:.9; }
+  .chat-send svg{ width:18px; height:18px; stroke: var(--dark); }
+  html[dir="rtl"] .chat-send svg{ transform: scaleX(-1); }
+
+  @media (max-width: 600px){
+    .chat-toggle{ right:.9rem; bottom:.9rem; }
+    html[dir="rtl"] .chat-toggle{ right:auto; left:.9rem; }
+    .chat-window{ right:.9rem; bottom:4.6rem; }
+    html[dir="rtl"] .chat-window{ right:auto; left:.9rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<div class="social-float" aria-label="Social media">
+  <a href="#" id="socialWhatsapp" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.44 5.13L2 22l5.13-1.55a9.87 9.87 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.16-4.94-4.35-.14-.19-1.19-1.58-1.19-3.02 0-1.43.75-2.13 1.02-2.43.27-.29.58-.36.78-.36h.55c.18 0 .42-.01.64.5.24.55.8 1.9.87 2.03.07.14.11.3.02.48-.09.19-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.19 1.53 1.94 1.05.96 1.94 1.26 2.22 1.4.28.14.44.12.6-.07.16-.19.68-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.55.75 1.82.89.27.14.44.2.51.32.06.11.06.65-.18 1.33z"/></svg>
+  </a>
+</div>
+
+<!-- ================= CHAT WIDGET ================= -->
+<button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</button>
+
+<div class="chat-window" id="chatWindow" role="dialog" aria-label="Chat with TITRITE HOUSE">
+  <div class="chat-head">
+    <img src="https://titrite-house1.github.io/TItrite-House/LOGO.png" alt="TITRITE HOUSE">
+    <span>TITRITE HOUSE</span>
+    <button class="chat-close" id="chatClose" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <form class="chat-form" id="chatForm">
+    <input class="chat-input" id="chatInput" type="text" autocomplete="off" placeholder="Écrivez votre message...">
+    <button class="chat-send" type="submit" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+    </button>
+  </form>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <a href="#home" class="brand-mark" aria-label="TITRITE HOUSE">
+    <img src="https://titrite-house1.github.io/TItrite-House/LOGO.png" alt="TITRITE HOUSE logo">
+    <span>TITRITE HOUSE</span>
+  </a>
+
+  <div class="header-actions">
+    <button class="icon-btn" id="searchToggle" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button data-lang="en" class="active">EN</button>/
+      <button data-lang="fr">FR</button>/
+      <button data-lang="ar">AR</button>
+    </div>
+    <div class="icon-wrap">
+      <button class="icon-btn" id="cartToggle" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 6h2l2.4 11.4A2 2 0 0 0 9.35 19h7.3a2 2 0 0 0 1.95-1.6L20 8H6"/><circle cx="9.5" cy="21.5" r="1"/><circle cx="17.5" cy="21.5" r="1"/></svg>
+        <span class="cart-count" id="cartCount" style="display:none;">0</span>
+      </button>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><line class="m-line m-line-1" x1="3" y1="6" x2="21" y2="6"/><line class="m-line m-line-2" x1="3" y1="12" x2="21" y2="12"/><line class="m-line m-line-3" x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="primary-nav" id="primaryNav">
+  <a href="#home" data-i18n="nav.home">Home</a>
+  <a href="#collection" data-i18n="nav.collection">Collection</a>
+  <a href="#spices" data-i18n="nav.spices">Spices</a>
+  <a href="#natural" data-i18n="nav.natural">Natural Products</a>
+  <a href="#story" data-i18n="nav.story">Our Story</a>
+  <a href="#contact" data-i18n="nav.contact">Contact</a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <video id="heroVideo" autoplay loop muted playsinline preload="metadata"
+    poster="https://titrite-house1.github.io/TItrite-House/1.jpeg">
+    <source src="https://titrite-house1.github.io/TItrite-House/HERO.mp4" type="video/mp4">
+  </video>
+  <img src="https://titrite-house1.github.io/TItrite-House/1.jpeg" alt="TITRITE HOUSE Moroccan spice collection" class="hero-fallback" id="heroFallback" style="display:none;">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-logo" id="heroLogo">TITRITE HOUSE</div>
+    <h1 class="hero-title" id="heroTitle" data-i18n="hero.title">Taste the Soul of Morocco</h1>
+    <p class="hero-sub" id="heroSub" data-i18n="hero.sub">Authentic Moroccan spices and natural treasures, presented with timeless elegance.</p>
+    <div class="hero-ctas" id="heroCtas">
+      <a href="#collection" class="btn filled" data-i18n="hero.cta1">Discover the Collection</a>
+      <a href="#story" class="btn ghost" data-i18n="hero.cta2">Our Story</a>
+    </div>
+  </div>
+  <div class="scroll-cue" id="scrollCue">
+    <span data-i18n="hero.scroll">Scroll to discover</span>
+    <span class="line"></span>
+  </div>
+</section>
+
+<!-- ================= BRAND INTRO ================= -->
+<section class="section-pad" id="story">
+  <div class="max-wrap intro-grid">
+    <div class="intro-media reveal">
+      <img src="https://titrite-house1.github.io/TItrite-House/1.jpeg" alt="TITRITE HOUSE product collection arranged in natural light">
+      <div class="intro-arch"></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="intro.eyebrow">Our Story</span>
+      <h2 class="section-title" data-i18n="intro.title">Moroccan Heritage, Reimagined</h2>
+      <p class="section-lede" style="margin-top:1.4rem;" data-i18n="intro.p1">TITRITE HOUSE gathers spices and natural ingredients rooted in Moroccan tradition, selected with care and presented without excess.</p>
+      <p class="section-lede" style="margin-top:1.1rem;" data-i18n="intro.p2">Each product is chosen for what it is, not for how it can be dressed up — honest ingredients, given the attention they deserve.</p>
+      <a href="#collection" class="btn" style="margin-top:2rem; display:inline-block; border-color: var(--forest); color: var(--forest);" data-i18n="intro.cta">Explore the collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COLLECTION GRID ================= -->
+<section class="section-pad" id="collection" style="padding-top:0;">
+  <div class="max-wrap">
+    <div class="collection-head reveal">
+      <div>
+        <span class="eyebrow" data-i18n="collection.eyebrow">The Collection</span>
+        <h2 class="section-title" data-i18n="collection.title">Spices, Selected with Care</h2>
+      </div>
+      <p class="section-lede" data-i18n="collection.lede">Nine essentials from the TITRITE HOUSE range — each rooted in Moroccan kitchens and traditions.</p>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ================= SPOTLIGHT: CUMIN ================= -->
+<section class="spotlight" id="spices">
+  <div class="spot-media reveal">
+    <img src="https://titrite-house1.github.io/TItrite-House/6.jpeg" alt="Cumin — TITRITE HOUSE">
+  </div>
+  <div class="spot-text reveal">
+    <span class="eyebrow" data-i18n="spot.cumin.eyebrow">Product Spotlight</span>
+    <h3 data-i18n="spot.cumin.title">Cumin</h3>
+    <p data-i18n="spot.cumin.desc">An essential Moroccan spice with a warm, earthy character.</p>
+    <button class="btn discover-btn" data-product="cumin" style="border-color: var(--forest); color: var(--forest); align-self:flex-start;" data-i18n="spot.discover">Discover Cumin</button>
+  </div>
+</section>
+
+<!-- ================= SPOTLIGHT: BLACK PEPPER (dark) ================= -->
+<section class="spotlight dark reverse">
+  <div class="spot-media reveal">
+    <img src="https://titrite-house1.github.io/TItrite-House/7.jpeg" alt="Whole black pepper — TITRITE HOUSE">
+  </div>
+  <div class="spot-text reveal">
+    <span class="eyebrow" data-i18n="spot.pepper.eyebrow">Product Spotlight</span>
+    <h3 data-i18n="spot.pepper.title">Whole Black Pepper</h3>
+    <p data-i18n="spot.pepper.desc">Bold and full-bodied, whole peppercorns bring depth to every dish they touch.</p>
+    <button class="btn discover-btn" data-product="pepper" style="align-self:flex-start;" data-i18n="spot.discoverGeneric">Discover</button>
+  </div>
+</section>
+
+<!-- ================= SPOTLIGHT: TURMERIC ================= -->
+<section class="spotlight">
+  <div class="spot-media reveal">
+    <img src="https://titrite-house1.github.io/TItrite-House/8.jpeg" alt="Turmeric — TITRITE HOUSE">
+  </div>
+  <div class="spot-text reveal">
+    <span class="eyebrow" data-i18n="spot.turmeric.eyebrow">Product Spotlight</span>
+    <h3 data-i18n="spot.turmeric.title">Curcuma</h3>
+    <p class="font-serif-el" style="font-family: var(--arabic); direction:rtl; font-size:1.1rem; color:#7a7061; margin-top:-1rem; margin-bottom:1rem;">الخرقوم</p>
+    <p data-i18n="spot.turmeric.desc">Golden and aromatic, turmeric brings its natural warmth and color to Moroccan cooking.</p>
+    <button class="btn discover-btn" data-product="turmeric" style="border-color: var(--forest); color: var(--forest); align-self:flex-start;" data-i18n="spot.discoverGeneric">Discover</button>
+  </div>
+</section>
+
+<!-- ================= SPOTLIGHT: CINNAMON (forest) ================= -->
+<section class="spotlight forest reverse">
+  <div class="spot-media reveal">
+    <img src="https://titrite-house1.github.io/TItrite-House/9.jpeg" alt="Cinnamon — TITRITE HOUSE">
+  </div>
+  <div class="spot-text reveal">
+    <span class="eyebrow" data-i18n="spot.cinnamon.eyebrow">Product Spotlight</span>
+    <h3 data-i18n="spot.cinnamon.title">Cannelle</h3>
+    <p data-i18n="spot.cinnamon.desc">Sweet, woody and warm — a spice at home in both tagines and pastries.</p>
+    <button class="btn discover-btn" data-product="cinnamon" style="align-self:flex-start;" data-i18n="spot.discoverGeneric">Discover</button>
+  </div>
+</section>
+
+<!-- ================= SPOTLIGHT: GINGER (dark) ================= -->
+<section class="spotlight dark">
+  <div class="spot-media reveal">
+    <img src="https://titrite-house1.github.io/TItrite-House/10.jpeg" alt="Ginger — TITRITE HOUSE">
+  </div>
+  <div class="spot-text reveal">
+    <span class="eyebrow" data-i18n="spot.ginger.eyebrow">Product Spotlight</span>
+    <h3 data-i18n="spot.ginger.title">Gingembre</h3>
+    <p class="font-serif-el" style="font-family: var(--arabic); direction:rtl; font-size:1.1rem; color:var(--stone); margin-top:-1rem; margin-bottom:1rem;">إسكَنجبير</p>
+    <p data-i18n="spot.ginger.desc">Sharp and vibrant, ginger adds brightness and character to Moroccan dishes.</p>
+    <button class="btn discover-btn" data-product="ginger" style="align-self:flex-start;" data-i18n="spot.discoverGeneric">Discover</button>
+  </div>
+</section>
+
+<!-- ================= MOROCCAN ESSENTIALS (3-product) ================= -->
+<section class="duo-feature">
+  <div class="duo-media reveal">
+    <img src="https://titrite-house1.github.io/TItrite-House/5.jpeg" alt="Piment doux, Ras el Hanout, and coriander — TITRITE HOUSE">
+  </div>
+  <div class="duo-panel reveal">
+    <span class="eyebrow" data-i18n="essentials.eyebrow">Moroccan Essentials</span>
+    <h2 class="section-title" data-i18n="essentials.title">Piment Doux, Ras El Hanout, Coriander</h2>
+    <p class="section-lede" style="margin-top:1.2rem;" data-i18n="essentials.desc">Three staples that anchor Moroccan cooking — gentle heat, a blend built from tradition, and fresh coriander to finish.</p>
+    <button class="btn discover-btn" data-product="essentials" style="margin-top:1.8rem; display:inline-block; align-self:flex-start; border-color: var(--forest); color: var(--forest);" data-i18n="spot.discoverGeneric">Discover</button>
+  </div>
+</section>
+
+<!-- ================= HARISSA ================= -->
+<section class="duo-feature">
+  <div class="duo-panel reveal" style="order:2;">
+    <span class="eyebrow" data-i18n="harissa.eyebrow">Product Feature</span>
+    <h2 class="section-title" data-i18n="harissa.title">Harissa</h2>
+    <p class="section-lede" style="margin-top:1.2rem;" data-i18n="harissa.desc">Ground hot pepper prepared in the TITRITE HOUSE tradition — bold, direct, and true to its origins.</p>
+    <button class="btn discover-btn" data-product="harissa" style="margin-top:1.8rem; display:inline-block; align-self:flex-start; border-color: var(--forest); color: var(--forest);" data-i18n="spot.discoverGeneric">Discover</button>
+  </div>
+  <div class="duo-media reveal" style="order:1;">
+    <img src="https://titrite-house1.github.io/TItrite-House/2.jpeg" alt="Harissa — TITRITE HOUSE, original label preserved">
+  </div>
+</section>
+
+<!-- ================= HERITAGE ================= -->
+<section class="heritage reveal">
+  <img src="https://titrite-house1.github.io/TItrite-House/4.jpeg" alt="Moroccan architectural detail with spice collection">
+  <div class="heritage-content">
+    <div class="inner">
+      <span class="eyebrow" data-i18n="heritage.eyebrow">Heritage</span>
+      <h2 data-i18n="heritage.title">Rooted in Moroccan Craft</h2>
+      <p data-i18n="heritage.desc">From stone archways to hand-selected spices, TITRITE HOUSE draws on a heritage of craft, patience, and attention to detail.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NATURAL PRODUCTS ================= -->
+<section class="section-pad" id="natural">
+  <div class="max-wrap">
+    <div class="collection-head reveal">
+      <div>
+        <span class="eyebrow" data-i18n="natural.eyebrow">Natural Products</span>
+        <h2 class="section-title" data-i18n="natural.title">Beyond the Spice Rack</h2>
+      </div>
+      <p class="section-lede" data-i18n="natural.lede">Honey, Aker Fassi, and other natural treasures from the TITRITE HOUSE range.</p>
+    </div>
+    <div class="natural-editorial reveal">
+      <div class="nat-item nat-a">
+        <img src="https://titrite-house1.github.io/TItrite-House/1.jpeg" alt="TITRITE HOUSE honey and natural products">
+        <span class="nat-caption" data-i18n="natural.capA">Honey &amp; Aker Fassi</span>
+      </div>
+      <div class="nat-item nat-b">
+        <img src="https://titrite-house1.github.io/TItrite-House/4.jpeg" alt="Natural beauty products in a traditional Moroccan setting">
+        <span class="nat-caption" data-i18n="natural.capB">Natural Beauty</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="max-wrap footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="https://titrite-house1.github.io/TItrite-House/LOGO.png" alt="TITRITE HOUSE logo">
+        <span>TITRITE HOUSE</span>
+      </div>
+      <p data-i18n="footer.tagline" style="max-width:32ch;">Authentic Moroccan taste. Timeless heritage. Modern luxury.</p>
+      <div class="contact-block" style="margin-top:1.4rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-i18n="footer.location">Agadir, Morocco — delivery available to other cities.</span>
+      </div>
+      <a href="#" id="footerWhatsapp" class="contact-block" style="align-items:center;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.44 5.13L2 22l5.13-1.55a9.87 9.87 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.16-4.94-4.35-.14-.19-1.19-1.58-1.19-3.02 0-1.43.75-2.13 1.02-2.43.27-.29.58-.36.78-.36h.55c.18 0 .42-.01.64.5.24.55.8 1.9.87 2.03.07.14.11.3.02.48-.09.19-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.19 1.53 1.94 1.05.96 1.94 1.26 2.22 1.4.28.14.44.12.6-.07.16-.19.68-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.55.75 1.82.89.27.14.44.2.51.32.06.11.06.65-.18 1.33z"/></svg>
+        <span data-i18n="footer.whatsappCta">Order via WhatsApp</span>
+      </a>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" required placeholder="Email" data-i18n-placeholder="footer.emailPlaceholder">
+        <button type="submit" data-i18n="footer.subscribe">Subscribe</button>
+      </form>
+      <div id="newsletterMsg" style="font-size:.72rem; color:var(--gold); margin-top:.4rem; min-height:1em;"></div>
+    </div>
+    <div>
+      <h4 data-i18n="footer.shop">Shop</h4>
+      <a href="#collection" data-i18n="nav.collection">Collection</a>
+      <a href="#spices" data-i18n="nav.spices">Spices</a>
+      <a href="#natural" data-i18n="nav.natural">Natural Products</a>
+    </div>
+    <div>
+      <h4 data-i18n="footer.company">Company</h4>
+      <a href="#story" data-i18n="nav.story">Our Story</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </div>
+    <div>
+      <h4 data-i18n="footer.social">Social</h4>
+      <a href="https://www.instagram.com/titrite_house?igsi=d200MDNzZjdpcTF5" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.facebook.com/rachid.boujnaid.31" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.4c0-.87.24-1.46 1.5-1.46h1.6V4.28C16.3 4.2 15.4 4.1 14.3 4.1c-2.4 0-4 1.46-4 4.15V10.5H7.8v3h2.5V21h3.2z"/></svg>
+        Facebook
+      </a>
+    </div>
+    <div>
+      <h4 data-i18n="footer.language">Language</h4>
+      <a href="#" data-lang="en">English</a>
+      <a href="#" data-lang="fr">Français</a>
+      <a href="#" data-lang="ar">العربية</a>
+    </div>
+  </div>
+  <div class="max-wrap footer-bottom">
+    <span>&copy; <span id="year"></span> TITRITE HOUSE. <span data-i18n="footer.rights">All rights reserved.</span></span>
+  </div>
+</footer>
+
+<!-- ================= CART DRAWER ================= -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="drawer" id="cartDrawer" role="dialog" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3 data-i18n="cart.title">Your Cart</h3>
+    <button class="icon-btn" id="closeCart" style="color: var(--charcoal);" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="cartBody">
+    <div class="cart-empty" id="cartEmpty" data-i18n="cart.empty">Your cart is empty.</div>
+  </div>
+  <div class="drawer-foot">
+    <div class="subtotal-row">
+      <span data-i18n="cart.subtotal">Subtotal</span>
+      <span data-i18n="cart.onRequest">Price on request</span>
+    </div>
+    <button type="button" class="whatsapp-btn" id="cartWhatsappBtn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.44 5.13L2 22l5.13-1.55a9.87 9.87 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.16-4.94-4.35-.14-.19-1.19-1.58-1.19-3.02 0-1.43.75-2.13 1.02-2.43.27-.29.58-.36.78-.36h.55c.18 0 .42-.01.64.5.24.55.8 1.9.87 2.03.07.14.11.3.02.48-.09.19-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.19 1.53 1.94 1.05.96 1.94 1.26 2.22 1.4.28.14.44.12.6-.07.16-.19.68-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.55.75 1.82.89.27.14.44.2.51.32.06.11.06.65-.18 1.33z"/></svg>
+      <span data-i18n="cart.whatsapp">Order via WhatsApp</span>
+    </button>
+  </div>
+</div>
+
+<!-- ================= SEARCH OVERLAY ================= -->
+<div class="search-overlay" id="searchOverlay">
+  <button class="search-close" id="closeSearch" aria-label="Close search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="26" height="26"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+  </button>
+  <input type="text" id="searchInput" data-i18n-placeholder="search.placeholder" placeholder="Search spices, products…" autocomplete="off">
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- ================= PRODUCT MODAL ================= -->
+<div class="modal-overlay" id="productModal" role="dialog" aria-label="Product detail">
+  <div class="modal-box">
+    <div class="modal-media"><img id="modalImg" src="" alt=""></div>
+    <div class="modal-info">
+      <button class="modal-close icon-btn" id="closeModal" style="color:var(--charcoal);" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+      </button>
+      <span class="eyebrow" id="modalCategory"></span>
+      <h3 id="modalName"></h3>
+      <div class="m-fr" id="modalFr"></div>
+      <div class="m-ar" id="modalAr"></div>
+      <div class="m-price" id="modalPrice"></div>
+      <p id="modalDesc" style="font-weight:300; line-height:1.75; color:#4b4238;"></p>
+      <div class="qty-ctrl">
+        <button id="qtyMinus" aria-label="Decrease quantity">−</button>
+        <span id="qtyVal">1</span>
+        <button id="qtyPlus" aria-label="Increase quantity">+</button>
+      </div>
+      <div style="display:flex; gap:.8rem; margin-top:1.2rem; flex-wrap:wrap;">
+        <button class="btn filled" id="addToCartBtn" data-i18n="modal.addToCart">Add to Cart</button>
+        <button type="button" class="whatsapp-btn" id="modalWhatsappBtn" style="width:auto; flex:1; min-width:180px;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.44 5.13L2 22l5.13-1.55a9.87 9.87 0 0 0 4.91 1.32h.01c5.46 0 9.9-4.45 9.9-9.9C21.96 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.12-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.16-4.94-4.35-.14-.19-1.19-1.58-1.19-3.02 0-1.43.75-2.13 1.02-2.43.27-.29.58-.36.78-.36h.55c.18 0 .42-.01.64.5.24.55.8 1.9.87 2.03.07.14.11.3.02.48-.09.19-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.19 1.53 1.94 1.05.96 1.94 1.26 2.22 1.4.28.14.44.12.6-.07.16-.19.68-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.55.75 1.82.89.27.14.44.2.51.32.06.11.06.65-.18 1.33z"/></svg>
+          <span data-i18n="modal.whatsapp">Buy via WhatsApp</span>
+        </button>
+      </div>
+      <div style="margin-top:1.8rem;">
+        <div class="accordion-item">
+          <button class="accordion-head"><span data-i18n="modal.description">Description</span><span>+</span></button>
+          <div class="accordion-panel"><div id="accDesc"></div></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-head"><span data-i18n="modal.details">Details</span><span>+</span></button>
+          <div class="accordion-panel"><div data-i18n="modal.detailsText">Sourced and prepared in Morocco.</div></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-head"><span data-i18n="modal.shipping">Shipping</span><span>+</span></button>
+          <div class="accordion-panel"><div data-i18n="modal.shippingText">Shipping information available at checkout.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ PRODUCT DATA (source of truth = supplied images only) ============ */
+const FALLBACK_PRODUCTS = [
+  { id:'cumin', name:{en:'Cumin',fr:'Cumin',ar:'كمون'}, category:'spice', image:'https://titrite-house1.github.io/TItrite-House/6.jpeg', price:null,
+    desc:{ en:'An essential Moroccan spice with a warm, earthy character.', fr:'Une épice marocaine essentielle au caractère chaud et terreux.', ar:'توابل مغربية أساسية بطابع دافئ وترابي.' } },
+  { id:'ginger', name:{en:'Ginger',fr:'Gingembre',ar:'إسكَنجبير'}, category:'spice', image:'https://titrite-house1.github.io/TItrite-House/10.jpeg', price:null,
+    desc:{ en:'Sharp and vibrant, ginger adds brightness and character to Moroccan dishes.', fr:'Vif et éclatant, le gingembre apporte de la vivacité aux plats marocains.', ar:'حاد ونابض بالحياة، يضفي الزنجبيل إشراقاً وطابعاً على الأطباق المغربية.' } },
+  { id:'pepper', name:{en:'Whole Black Pepper',fr:'Poivre Noir en Grains',ar:'فلفل أسود كامل'}, category:'spice', image:'https://titrite-house1.github.io/TItrite-House/7.jpeg', price:null,
+    desc:{ en:'Bold and full-bodied, whole peppercorns bring depth to every dish they touch.', fr:'Corsé et intense, le poivre en grains apporte de la profondeur à chaque plat.', ar:'قوي وكثيف، يمنح الفلفل الأسود الكامل عمقاً لكل طبق.' } },
+  { id:'cinnamon', name:{en:'Cinnamon',fr:'Cannelle',ar:'قرفة'}, category:'spice', image:'https://titrite-house1.github.io/TItrite-House/9.jpeg', price:null,
+    desc:{ en:'Sweet, woody and warm — a spice at home in both tagines and pastries.', fr:'Douce, boisée et chaleureuse — une épice aussi bien dans les tajines que les pâtisseries.', ar:'حلوة وخشبية ودافئة، توابل تليق بالطاجين والحلويات على حد سواء.' } },
+  { id:'turmeric', name:{en:'Turmeric',fr:'Curcuma',ar:'الخرقوم'}, category:'spice', image:'https://titrite-house1.github.io/TItrite-House/8.jpeg', price:null,
+    desc:{ en:'Golden and aromatic, turmeric brings its natural warmth and color to Moroccan cooking.', fr:'Doré et aromatique, le curcuma apporte sa chaleur et sa couleur naturelles à la cuisine marocaine.', ar:'ذهبي وعطري، يضفي الخرقوم دفئه ولونه الطبيعيين على المطبخ المغربي.' } },
+  { id:'piment-doux', name:{en:'Piment Doux',fr:'Piment Doux',ar:'فلفل حلو'}, category:'spice', image:'https://titrite-house1.github.io/TItrite-House/5.jpeg', price:null,
+    desc:{ en:'A gentle pepper that colors and rounds out Moroccan dishes without overpowering them.', fr:'Un piment doux qui colore et adoucit les plats marocains sans les dominer.', ar:'فلفل لطيف يمنح الأطباق المغربية لوناً ونكهة متوازنة دون أن يطغى عليها.' } },
+  { id:'ras-el-hanout', name:{en:'Ras El Hanout',fr:'Ras El Hanout',ar:'رأس الحانوت'}, category:'spice', image:'https://titrite-house1.github.io/TItrite-House/5.jpeg', price:null,
+    desc:{ en:'A blend built from tradition, bringing together many spices into one harmonious mix.', fr:'Un mélange né de la tradition, réunissant de nombreuses épices en un tout harmonieux.', ar:'مزيج متجذر في التقاليد، يجمع بين توابل عديدة في مزيج متناغم.' } },
+  { id:'coriander', name:{en:'Coriander',fr:'Coriandre',ar:'كزبرة'}, category:'spice', image:'https://titrite-house1.github.io/TItrite-House/5.jpeg', price:null,
+    desc:{ en:'Fresh and citrus-like, coriander finishes Moroccan dishes with brightness.', fr:'Fraîche et citronnée, la coriandre apporte une touche de fraîcheur finale aux plats marocains.', ar:'منعشة وذات نكهة حمضية، تضفي الكزبرة لمسة نهائية مشرقة على الأطباق المغربية.' } },
+  { id:'harissa', name:{en:'Harissa',fr:'Harissa',ar:'هريسة'}, category:'natural', image:'https://titrite-house1.github.io/TItrite-House/2.jpeg', price:null,
+    desc:{ en:'Ground hot pepper prepared in the TITRITE HOUSE tradition — bold, direct, and true to its origins.', fr:'Piment fort moulu préparé selon la tradition TITRITE HOUSE — franc, direct et fidèle à ses origines.', ar:'فلفل حار مطحون محضّر وفق تقاليد TITRITE HOUSE، جريء ومباشر وأصيل.' } },
+];
+
+const I18N = {
+  en:{
+    'nav.home':'Home','nav.collection':'Collection','nav.spices':'Spices','nav.natural':'Natural Products','nav.story':'Our Story','nav.contact':'Contact',
+    'hero.title':'Taste the Soul of Morocco','hero.sub':'Authentic Moroccan spices and natural treasures, presented with timeless elegance.',
+    'hero.cta1':'Discover the Collection','hero.cta2':'Our Story','hero.scroll':'Scroll to discover',
+    'intro.eyebrow':'Our Story','intro.title':'Moroccan Heritage, Reimagined',
+    'intro.p1':'TITRITE HOUSE gathers spices and natural ingredients rooted in Moroccan tradition, selected with care and presented without excess.',
+    'intro.p2':'Each product is chosen for what it is, not for how it can be dressed up — honest ingredients, given the attention they deserve.',
+    'intro.cta':'Explore the collection',
+    'collection.eyebrow':'The Collection','collection.title':'Spices, Selected with Care',
+    'collection.lede':'Nine essentials from the TITRITE HOUSE range — each rooted in Moroccan kitchens and traditions.',
+    'sticky.eyebrow1':'Essential Flavors','sticky.h1':'Cumin &amp; Ginger','sticky.p1':'Warm and earthy, bright and sharp — two of the most reached-for spices in the Moroccan kitchen.',
+    'sticky.eyebrow2':'Essential Flavors','sticky.h2':'Black Pepper &amp; Cinnamon','sticky.p2':'One sharpens a dish, the other rounds it out. Together they carry both savory and sweet Moroccan traditions.',
+    'sticky.eyebrow3':'Essential Flavors','sticky.h3':'Ras El Hanout &amp; Turmeric','sticky.p3':'A blend built from many hands, and a root prized for its color and character — the backbone of countless tagines.',
+    'sticky.eyebrow4':'Essential Flavors','sticky.h4':'Piment Doux &amp; Coriander','sticky.p4':'Gentle heat and fresh, citrus-like notes — the finishing touches of Moroccan cooking.',
+    'spot.discover':'Discover Cumin','spot.discoverGeneric':'Discover',
+    'spot.cumin.eyebrow':'Product Spotlight','spot.cumin.title':'Cumin','spot.cumin.desc':'An essential Moroccan spice with a warm, earthy character.',
+    'spot.pepper.eyebrow':'Product Spotlight','spot.pepper.title':'Whole Black Pepper','spot.pepper.desc':'Bold and full-bodied, whole peppercorns bring depth to every dish they touch.',
+    'spot.turmeric.eyebrow':'Product Spotlight','spot.turmeric.title':'Curcuma','spot.turmeric.desc':'Golden and aromatic, turmeric brings its natural warmth and color to Moroccan cooking.',
+    'spot.cinnamon.eyebrow':'Product Spotlight','spot.cinnamon.title':'Cannelle','spot.cinnamon.desc':'Sweet, woody and warm — a spice at home in both tagines and pastries.',
+    'spot.ginger.eyebrow':'Product Spotlight','spot.ginger.title':'Gingembre','spot.ginger.desc':'Sharp and vibrant, ginger adds brightness and character to Moroccan dishes.',
+    'essentials.eyebrow':'Moroccan Essentials','essentials.title':'Piment Doux, Ras El Hanout, Coriander',
+    'essentials.desc':'Three staples that anchor Moroccan cooking — gentle heat, a blend built from tradition, and fresh coriander to finish.',
+    'harissa.eyebrow':'Product Feature','harissa.title':'Harissa','harissa.desc':'Ground hot pepper prepared in the TITRITE HOUSE tradition — bold, direct, and true to its origins.',
+    'heritage.eyebrow':'Heritage','heritage.title':'Rooted in Moroccan Craft',
+    'heritage.desc':'From stone archways to hand-selected spices, TITRITE HOUSE draws on a heritage of craft, patience, and attention to detail.',
+    'natural.eyebrow':'Natural Products','natural.title':'Beyond the Spice Rack','natural.lede':'Honey, Aker Fassi, and other natural treasures from the TITRITE HOUSE range.',
+    'natural.capA':'Honey &amp; Aker Fassi','natural.capB':'Natural Beauty',
+    'footer.tagline':'Authentic Moroccan taste. Timeless heritage. Modern luxury.',
+    'footer.emailPlaceholder':'Email','footer.subscribe':'Subscribe','footer.shop':'Shop','footer.company':'Company','footer.social':'Social','footer.language':'Language','footer.rights':'All rights reserved.',
+    'cart.title':'Your Cart','cart.empty':'Your cart is empty.','cart.subtotal':'Subtotal','cart.onRequest':'Price on request','cart.checkout':'Enquire &amp; Checkout',
+    'search.placeholder':'Search spices, products…',
+    'modal.addToCart':'Add to Cart','modal.description':'Description','modal.details':'Details','modal.detailsText':'Sourced and prepared in Morocco.',
+    'modal.shipping':'Shipping','modal.shippingText':'Shipping information available at checkout.',
+    'footer.location':'Agadir, Morocco — delivery available to other cities.','footer.whatsappCta':'Order via WhatsApp',
+    'cart.whatsapp':'Order via WhatsApp','modal.whatsapp':'Buy via WhatsApp',
+  },
+  fr:{
+    'nav.home':'Accueil','nav.collection':'Collection','nav.spices':'Épices','nav.natural':'Produits Naturels','nav.story':'Notre Histoire','nav.contact':'Contact',
+    'hero.title':'Goûtez l’Âme du Maroc','hero.sub':'Épices marocaines authentiques et trésors naturels, présentés avec une élégance intemporelle.',
+    'hero.cta1':'Découvrir la Collection','hero.cta2':'Notre Histoire','hero.scroll':'Défiler pour découvrir',
+    'intro.eyebrow':'Notre Histoire','intro.title':'Le Patrimoine Marocain, Réinventé',
+    'intro.p1':'TITRITE HOUSE rassemble des épices et ingrédients naturels ancrés dans la tradition marocaine, sélectionnés avec soin et présentés sans excès.',
+    'intro.p2':'Chaque produit est choisi pour ce qu’il est, non pour l’apparence qu’on peut lui donner — des ingrédients honnêtes, traités avec toute l’attention qu’ils méritent.',
+    'intro.cta':'Explorer la collection',
+    'collection.eyebrow':'La Collection','collection.title':'Des Épices Sélectionnées avec Soin',
+    'collection.lede':'Neuf essentiels de la gamme TITRITE HOUSE — chacun ancré dans les cuisines et traditions marocaines.',
+    'sticky.eyebrow1':'Saveurs Essentielles','sticky.h1':'Cumin &amp; Gingembre','sticky.p1':'Chaud et terreux, vif et piquant — deux des épices les plus utilisées dans la cuisine marocaine.',
+    'sticky.eyebrow2':'Saveurs Essentielles','sticky.h2':'Poivre Noir &amp; Cannelle','sticky.p2':'L’un relève un plat, l’autre l’adoucit. Ensemble, ils portent les traditions marocaines salées et sucrées.',
+    'sticky.eyebrow3':'Saveurs Essentielles','sticky.h3':'Ras El Hanout &amp; Curcuma','sticky.p3':'Un mélange né de nombreuses mains, et une racine prisée pour sa couleur et son caractère — la base d’innombrables tajines.',
+    'sticky.eyebrow4':'Saveurs Essentielles','sticky.h4':'Piment Doux &amp; Coriandre','sticky.p4':'Une chaleur douce et des notes fraîches et citronnées — la touche finale de la cuisine marocaine.',
+    'spot.discover':'Découvrir le Cumin','spot.discoverGeneric':'Découvrir',
+    'spot.cumin.eyebrow':'Focus Produit','spot.cumin.title':'Cumin','spot.cumin.desc':'Une épice marocaine essentielle au caractère chaud et terreux.',
+    'spot.pepper.eyebrow':'Focus Produit','spot.pepper.title':'Poivre Noir en Grains','spot.pepper.desc':'Corsé et intense, le poivre en grains apporte de la profondeur à chaque plat.',
+    'spot.turmeric.eyebrow':'Focus Produit','spot.turmeric.title':'Curcuma','spot.turmeric.desc':'Doré et aromatique, le curcuma apporte sa chaleur et sa couleur naturelles à la cuisine marocaine.',
+    'spot.cinnamon.eyebrow':'Focus Produit','spot.cinnamon.title':'Cannelle','spot.cinnamon.desc':'Douce, boisée et chaleureuse — une épice aussi bien dans les tajines que les pâtisseries.',
+    'spot.ginger.eyebrow':'Focus Produit','spot.ginger.title':'Gingembre','spot.ginger.desc':'Vif et éclatant, le gingembre apporte de la vivacité et du caractère aux plats marocains.',
+    'essentials.eyebrow':'Essentiels Marocains','essentials.title':'Piment Doux, Ras El Hanout, Coriandre',
+    'essentials.desc':'Trois incontournables de la cuisine marocaine — une chaleur douce, un mélange né de la tradition, et de la coriandre fraîche pour finir.',
+    'harissa.eyebrow':'Focus Produit','harissa.title':'Harissa','harissa.desc':'Piment fort moulu préparé selon la tradition TITRITE HOUSE — franc, direct et fidèle à ses origines.',
+    'heritage.eyebrow':'Patrimoine','heritage.title':'Ancré dans l’Artisanat Marocain',
+    'heritage.desc':'Des arcs en pierre aux épices sélectionnées à la main, TITRITE HOUSE puise dans un héritage d’artisanat, de patience et d’attention aux détails.',
+    'natural.eyebrow':'Produits Naturels','natural.title':'Au-delà des Épices','natural.lede':'Miel, Aker Fassi, et autres trésors naturels de la gamme TITRITE HOUSE.',
+    'natural.capA':'Miel &amp; Aker Fassi','natural.capB':'Beauté Naturelle',
+    'footer.tagline':'Goût marocain authentique. Patrimoine intemporel. Luxe moderne.',
+    'footer.emailPlaceholder':'E-mail','footer.subscribe':'S’abonner','footer.shop':'Boutique','footer.company':'Entreprise','footer.social':'Réseaux','footer.language':'Langue','footer.rights':'Tous droits réservés.',
+    'cart.title':'Votre Panier','cart.empty':'Votre panier est vide.','cart.subtotal':'Sous-total','cart.onRequest':'Prix sur demande','cart.checkout':'Nous Contacter',
+    'search.placeholder':'Rechercher épices, produits…',
+    'modal.addToCart':'Ajouter au Panier','modal.description':'Description','modal.details':'Détails','modal.detailsText':'Sourcé et préparé au Maroc.',
+    'modal.shipping':'Livraison','modal.shippingText':'Informations de livraison disponibles au moment du paiement.',
+    'footer.location':'Agadir, Maroc — livraison possible vers d’autres villes.','footer.whatsappCta':'Commander via WhatsApp',
+    'cart.whatsapp':'Commander via WhatsApp','modal.whatsapp':'Acheter via WhatsApp',
+  },
+  ar:{
+    'nav.home':'الرئيسية','nav.collection':'المجموعة','nav.spices':'التوابل','nav.natural':'منتجات طبيعية','nav.story':'قصتنا','nav.contact':'اتصل بنا',
+    'hero.title':'تذوّق روح المغرب','hero.sub':'توابل مغربية أصيلة وكنوز طبيعية، معروضة بأناقة خالدة.',
+    'hero.cta1':'اكتشف المجموعة','hero.cta2':'قصتنا','hero.scroll':'مرر للاكتشاف',
+    'intro.eyebrow':'قصتنا','intro.title':'التراث المغربي، بحلة جديدة',
+    'intro.p1':'تجمع TITRITE HOUSE توابل ومكونات طبيعية متجذرة في التقاليد المغربية، مختارة بعناية ومعروضة دون مبالغة.',
+    'intro.p2':'يُختار كل منتج لما هو عليه، لا لما يمكن أن يُزيَّن به — مكونات صادقة تُمنح الاهتمام الذي تستحقه.',
+    'intro.cta':'اكتشف المجموعة',
+    'collection.eyebrow':'المجموعة','collection.title':'توابل مختارة بعناية',
+    'collection.lede':'تسعة أساسيات من مجموعة TITRITE HOUSE — كل واحدة متجذرة في المطابخ والتقاليد المغربية.',
+    'sticky.eyebrow1':'نكهات أساسية','sticky.h1':'الكمون والزنجبيل','sticky.p1':'دافئ وترابي، ومنعش وحاد — من أكثر التوابل استخداماً في المطبخ المغربي.',
+    'sticky.eyebrow2':'نكهات أساسية','sticky.h2':'الفلفل الأسود والقرفة','sticky.p2':'أحدهما يبرز نكهة الطبق والآخر يوازنها. معاً يحملان التقاليد المغربية المالحة والحلوة.',
+    'sticky.eyebrow3':'نكهات أساسية','sticky.h3':'رأس الحانوت والخرقوم','sticky.p3':'مزيج نابع من أيادٍ عديدة، وجذر يُقدَّر للونه وطابعه — أساس عدد لا يحصى من الأطباق.',
+    'sticky.eyebrow4':'نكهات أساسية','sticky.h4':'الفلفل الحلو والكزبرة','sticky.p4':'حرارة لطيفة ونكهات منعشة حمضية — اللمسات الأخيرة للمطبخ المغربي.',
+    'spot.discover':'اكتشف الكمون','spot.discoverGeneric':'اكتشف',
+    'spot.cumin.eyebrow':'تسليط الضوء على منتج','spot.cumin.title':'كمون','spot.cumin.desc':'توابل مغربية أساسية بطابع دافئ وترابي.',
+    'spot.pepper.eyebrow':'تسليط الضوء على منتج','spot.pepper.title':'فلفل أسود كامل','spot.pepper.desc':'قوي وكثيف، يمنح الفلفل الأسود الكامل عمقاً لكل طبق.',
+    'spot.turmeric.eyebrow':'تسليط الضوء على منتج','spot.turmeric.title':'الخرقوم','spot.turmeric.desc':'ذهبي وعطري، يضفي الخرقوم دفئه ولونه الطبيعيين على المطبخ المغربي.',
+    'spot.cinnamon.eyebrow':'تسليط الضوء على منتج','spot.cinnamon.title':'قرفة','spot.cinnamon.desc':'حلوة وخشبية ودافئة — توابل تليق بالطاجين والحلويات على حد سواء.',
+    'spot.ginger.eyebrow':'تسليط الضوء على منتج','spot.ginger.title':'زنجبيل','spot.ginger.desc':'حاد ونابض بالحياة، يضفي الزنجبيل إشراقاً وطابعاً على الأطباق المغربية.',
+    'essentials.eyebrow':'أساسيات مغربية','essentials.title':'فلفل حلو، رأس الحانوت، كزبرة',
+    'essentials.desc':'ثلاثة أساسيات ترتكز عليها الأطباق المغربية — حرارة لطيفة، ومزيج نابع من التقاليد، وكزبرة طازجة للمسة الأخيرة.',
+    'harissa.eyebrow':'تسليط الضوء على منتج','harissa.title':'هريسة','harissa.desc':'فلفل حار مطحون محضّر وفق تقاليد TITRITE HOUSE، جريء ومباشر وأصيل.',
+    'heritage.eyebrow':'التراث','heritage.title':'متجذرون في الحرفية المغربية',
+    'heritage.desc':'من الأقواس الحجرية إلى التوابل المختارة يدوياً، تستمد TITRITE HOUSE من إرث الحرفية والصبر والاهتمام بالتفاصيل.',
+    'natural.eyebrow':'منتجات طبيعية','natural.title':'أبعد من رف التوابل','natural.lede':'العسل، عكر فاسي، وكنوز طبيعية أخرى من مجموعة TITRITE HOUSE.',
+    'natural.capA':'العسل وعكر فاسي','natural.capB':'جمال طبيعي',
+    'footer.tagline':'طعم مغربي أصيل. تراث خالد. رفاهية عصرية.',
+    'footer.emailPlaceholder':'البريد الإلكتروني','footer.subscribe':'اشترك','footer.shop':'المتجر','footer.company':'الشركة','footer.social':'التواصل الاجتماعي','footer.language':'اللغة','footer.rights':'جميع الحقوق محفوظة.',
+    'cart.title':'سلتك','cart.empty':'سلتك فارغة.','cart.subtotal':'المجموع الفرعي','cart.onRequest':'السعر عند الطلب','cart.checkout':'تواصل معنا',
+    'search.placeholder':'ابحث عن توابل، منتجات…',
+    'modal.addToCart':'أضف إلى السلة','modal.description':'الوصف','modal.details':'التفاصيل','modal.detailsText':'مصدره وتحضيره من المغرب.',
+    'modal.shipping':'الشحن','modal.shippingText':'معلومات الشحن متوفرة عند الدفع.',
+    'footer.location':'أكادير، المغرب — التوصيل متوفر إلى مدن أخرى.','footer.whatsappCta':'اطلب عبر واتساب',
+    'cart.whatsapp':'اطلب عبر واتساب','modal.whatsapp':'اشترِ عبر واتساب',
+  }
+};
+
+const WHATSAPP_NUMBER = '212661089528';
+function buildWhatsappUrl(message){
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+/* ---------- Neon-backed API (via Cloudflare Worker) ---------- */
+const API_BASE = 'https://titritehouse.sssdsssb00.workers.dev';
+const CHAT_SESSION_ID = (() => {
+  let sid = null;
+  try { sid = sessionStorage.getItem('th_session_id'); } catch(e){}
+  if(!sid){
+    sid = 'sess_' + Date.now().toString(36) + Math.random().toString(36).slice(2);
+    try { sessionStorage.setItem('th_session_id', sid); } catch(e){}
+  }
+  return sid;
+})();
+
+let currentLang = 'en';
+let cart = {}; // id -> qty
+let PRODUCTS = FALLBACK_PRODUCTS;
+
+async function loadProductsFromAPI(){
+  try{
+    const res = await fetch(`${API_BASE}/api/products`);
+    if(!res.ok) throw new Error('bad response');
+    const data = await res.json();
+    if(Array.isArray(data) && data.length){
+      PRODUCTS = data.map(p => ({
+        id: p.slug,
+        name: { en: p.name_en, fr: p.name_fr || p.name_en, ar: p.name_ar || p.name_en },
+        category: p.category,
+        image: p.image_url,
+        price: p.price,
+        desc: { en: p.description_en || '', fr: p.description_fr || p.description_en || '', ar: p.description_ar || p.description_en || '' }
+      }));
+      applyLang(currentLang);
+    }
+  } catch(err){
+    console.warn('Products API unavailable, using fallback catalog.', err);
+  }
+}
+
+/* ---------- i18n ---------- */
+function applyLang(lang){
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  const dict = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+  });
+  document.querySelectorAll('.lang-switch button, .footer-grid a[data-lang]').forEach(b=>{
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+  renderProductGrid();
+  updateCartUI();
+}
+document.querySelectorAll('[data-lang]').forEach(btn=>{
+  btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    applyLang(btn.getAttribute('data-lang'));
+  });
+});
+
+/* ---------- Header scroll state ---------- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive:true });
+
+/* ---------- Body scroll lock (mobile overlays) ---------- */
+function refreshScrollLock(){
+  const anyOpen = primaryNav.classList.contains('open')
+    || cartDrawer.classList.contains('open')
+    || searchOverlay.classList.contains('open')
+    || productModal.classList.contains('open');
+  document.body.classList.toggle('no-scroll', anyOpen);
+}
+
+/* ---------- Mobile nav ---------- */
+const mobileToggle = document.getElementById('mobileToggle');
+const primaryNav = document.getElementById('primaryNav');
+mobileToggle.addEventListener('click', ()=>{
+  const isOpen = primaryNav.classList.toggle('open');
+  mobileToggle.classList.toggle('active', isOpen);
+  mobileToggle.setAttribute('aria-expanded', String(isOpen));
+  refreshScrollLock();
+});
+primaryNav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> {
+  primaryNav.classList.remove('open');
+  mobileToggle.classList.remove('active');
+  mobileToggle.setAttribute('aria-expanded', 'false');
+  refreshScrollLock();
+}));
+
+/* ---------- Hero video fallback ---------- */
+const heroVideo = document.getElementById('heroVideo');
+const heroFallback = document.getElementById('heroFallback');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reducedMotion){
+  heroVideo.style.display = 'none';
+  heroFallback.style.display = 'block';
+} else {
+  heroVideo.play().catch(()=>{
+    heroVideo.style.display = 'none';
+    heroFallback.style.display = 'block';
+  });
+  heroVideo.addEventListener('error', ()=>{
+    heroVideo.style.display = 'none';
+    heroFallback.style.display = 'block';
+  });
+}
+
+/* ---------- Hero entrance sequence ---------- */
+window.addEventListener('load', ()=>{
+  const seq = [
+    ['heroLogo', 0],
+    ['heroTitle', 250],
+    ['heroSub', 480],
+    ['heroCtas', 700],
+    ['scrollCue', 1100],
+  ];
+  seq.forEach(([id, delay])=>{
+    setTimeout(()=>{
+      const el = document.getElementById(id);
+      el.style.transition = 'opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1)';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, reducedMotion ? 0 : delay);
+  });
+});
+
+/* ---------- Scroll reveal ---------- */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el=> io.observe(el));
+
+/* ---------- Custom cursor ---------- */
+const cursorDot = document.getElementById('cursorDot');
+if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+  document.body.classList.add('cursor-ready');
+  window.addEventListener('mousemove', (e)=>{
+    cursorDot.style.left = e.clientX + 'px';
+    cursorDot.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('img, .p-media, .spot-media, .intro-media, .duo-media, .heritage, .nat-item').forEach(el=>{
+    el.addEventListener('mouseenter', ()=> cursorDot.classList.add('is-media'));
+    el.addEventListener('mouseleave', ()=> cursorDot.classList.remove('is-media'));
+  });
+  document.querySelectorAll('.btn, button, a').forEach(el=>{
+    el.addEventListener('mouseenter', ()=> cursorDot.classList.add('is-cta'));
+    el.addEventListener('mouseleave', ()=> cursorDot.classList.remove('is-cta'));
+  });
+}
+
+/* ---------- Render product grid ---------- */
+function priceLabel(){
+  return currentLang === 'fr' ? 'Prix sur demande' : currentLang === 'ar' ? 'السعر عند الطلب' : 'Price on request';
+}
+function renderProductGrid(){
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = '';
+  PRODUCTS.forEach(p=>{
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <div class="p-media">
+        <img src="${p.image}" alt="${p.name.en} — TITRITE HOUSE" loading="lazy">
+        <div class="gold-edge"></div>
+      </div>
+      <div class="p-body">
+        <div class="p-name">${p.name[currentLang]}</div>
+        <div class="p-name-fr">${p.name.fr}</div>
+        <div class="p-name-ar">${p.name.ar}</div>
+        <p class="p-desc">${p.desc[currentLang]}</p>
+        <div class="p-foot">
+          <span class="p-price">${priceLabel()}</span>
+          <button class="p-discover discover-btn" data-product="${p.id}">${currentLang==='fr'?'Découvrir':currentLang==='ar'?'اكتشف':'Discover'}</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  bindDiscoverButtons();
+}
+
+/* ---------- Product modal ---------- */
+const productModal = document.getElementById('productModal');
+let activeProductId = null;
+let modalQty = 1;
+
+function openProductModal(id){
+  const p = PRODUCTS.find(x=>x.id===id) || { id:'essentials', name:{en:'Moroccan Essentials',fr:'Essentiels Marocains',ar:'أساسيات مغربية'}, image:'https://titrite-house1.github.io/TItrite-House/5.jpeg', desc:{en:'Piment Doux, Ras El Hanout and Coriander presented together.', fr:'Piment doux, Ras El Hanout et coriandre présentés ensemble.', ar:'الفلفل الحلو ورأس الحانوت والكزبرة معروضة معاً.'}, category:'spice', price:null };
+  activeProductId = p.id;
+  modalQty = 1;
+  document.getElementById('qtyVal').textContent = modalQty;
+  document.getElementById('modalImg').src = p.image;
+  document.getElementById('modalImg').alt = p.name.en + ' — TITRITE HOUSE';
+  document.getElementById('modalCategory').textContent = currentLang==='fr' ? 'Produit' : currentLang==='ar' ? 'منتج' : 'Product';
+  document.getElementById('modalName').textContent = p.name[currentLang];
+  document.getElementById('modalFr').textContent = p.name.fr;
+  document.getElementById('modalAr').textContent = p.name.ar;
+  document.getElementById('modalPrice').textContent = priceLabel();
+  document.getElementById('modalDesc').textContent = p.desc[currentLang];
+  document.getElementById('accDesc').textContent = p.desc[currentLang];
+  productModal.classList.add('open');
+  refreshScrollLock();
+}
+function bindDiscoverButtons(){
+  document.querySelectorAll('.discover-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> openProductModal(btn.getAttribute('data-product')));
+  });
+}
+document.getElementById('closeModal').addEventListener('click', ()=> { productModal.classList.remove('open'); refreshScrollLock(); });
+productModal.addEventListener('click', (e)=>{ if(e.target === productModal){ productModal.classList.remove('open'); refreshScrollLock(); } });
+
+document.getElementById('qtyMinus').addEventListener('click', ()=>{
+  modalQty = Math.max(1, modalQty-1);
+  document.getElementById('qtyVal').textContent = modalQty;
+});
+document.getElementById('qtyPlus').addEventListener('click', ()=>{
+  modalQty += 1;
+  document.getElementById('qtyVal').textContent = modalQty;
+});
+document.getElementById('addToCartBtn').addEventListener('click', ()=>{
+  if(!activeProductId) return;
+  cart[activeProductId] = (cart[activeProductId] || 0) + modalQty;
+  updateCartUI();
+  productModal.classList.remove('open');
+  openCartDrawer();
+});
+
+/* Accordion */
+document.querySelectorAll('.accordion-head').forEach(head=>{
+  head.addEventListener('click', ()=>{
+    const item = head.parentElement;
+    const wasOpen = item.classList.contains('open');
+    item.parentElement.querySelectorAll('.accordion-item').forEach(i=> i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+
+/* ---------- Cart drawer ---------- */
+const cartDrawer = document.getElementById('cartDrawer');
+const drawerOverlay = document.getElementById('drawerOverlay');
+function openCartDrawer(){ cartDrawer.classList.add('open'); drawerOverlay.classList.add('open'); refreshScrollLock(); }
+function closeCartDrawer(){ cartDrawer.classList.remove('open'); drawerOverlay.classList.remove('open'); refreshScrollLock(); }
+document.getElementById('cartToggle').addEventListener('click', openCartDrawer);
+document.getElementById('closeCart').addEventListener('click', closeCartDrawer);
+drawerOverlay.addEventListener('click', closeCartDrawer);
+
+function updateCartUI(){
+  const body = document.getElementById('cartBody');
+  const countBadge = document.getElementById('cartCount');
+  const ids = Object.keys(cart).filter(id => cart[id] > 0);
+  const totalCount = ids.reduce((sum,id)=> sum + cart[id], 0);
+  countBadge.textContent = totalCount;
+  countBadge.style.display = totalCount > 0 ? 'flex' : 'none';
+
+  if(ids.length === 0){
+    body.innerHTML = `<div class="cart-empty">${I18N[currentLang]['cart.empty']}</div>`;
+    return;
+  }
+  body.innerHTML = '';
+  ids.forEach(id=>{
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(!p) return;
+    const row = document.createElement('div');
+    row.className = 'cart-item';
+    row.innerHTML = `
+      <img src="${p.image}" alt="${p.name.en}">
+      <div style="flex:1;">
+        <div class="ci-name">${p.name[currentLang]}</div>
+        <div class="ci-meta">${priceLabel()}</div>
+        <div class="qty-ctrl">
+          <button class="ci-minus" data-id="${id}">−</button>
+          <span>${cart[id]}</span>
+          <button class="ci-plus" data-id="${id}">+</button>
+          <button class="ci-remove" data-id="${id}" style="margin-inline-start:.8rem; border:none; background:none; color:#a15; font-size:.75rem;">${currentLang==='fr'?'Retirer':currentLang==='ar'?'إزالة':'Remove'}</button>
+        </div>
+      </div>
+    `;
+    body.appendChild(row);
+  });
+  body.querySelectorAll('.ci-plus').forEach(b=> b.addEventListener('click', ()=>{ cart[b.dataset.id]++; updateCartUI(); }));
+  body.querySelectorAll('.ci-minus').forEach(b=> b.addEventListener('click', ()=>{ cart[b.dataset.id] = Math.max(0, cart[b.dataset.id]-1); updateCartUI(); }));
+  body.querySelectorAll('.ci-remove').forEach(b=> b.addEventListener('click', ()=>{ delete cart[b.dataset.id]; updateCartUI(); }));
+}
+
+/* ---------- Search overlay ---------- */
+const searchOverlay = document.getElementById('searchOverlay');
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+document.getElementById('searchToggle').addEventListener('click', ()=>{
+  searchOverlay.classList.add('open');
+  refreshScrollLock();
+  setTimeout(()=> searchInput.focus(), 350);
+});
+document.getElementById('closeSearch').addEventListener('click', ()=> { searchOverlay.classList.remove('open'); refreshScrollLock(); });
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape'){
+    searchOverlay.classList.remove('open');
+    productModal.classList.remove('open');
+    closeCartDrawer();
+    refreshScrollLock();
+  }
+});
+searchInput.addEventListener('input', ()=>{
+  const q = searchInput.value.trim().toLowerCase();
+  if(!q){ searchResults.innerHTML=''; return; }
+  const matches = PRODUCTS.filter(p=>
+    p.name.en.toLowerCase().includes(q) || p.name.fr.toLowerCase().includes(q) || p.name.ar.includes(q) || p.category.includes(q)
+  );
+  searchResults.innerHTML = matches.map(p=>`
+    <div class="sr-item" data-id="${p.id}" style="cursor:pointer;">
+      <img src="${p.image}" alt="${p.name.en}">
+      <div>
+        <div style="font-family: var(--serif); font-size:1.1rem; color: var(--ivory);">${p.name[currentLang]}</div>
+        <div style="font-size:.75rem; color:#8a8375;">${p.name.fr} · ${p.name.ar}</div>
+      </div>
+    </div>
+  `).join('') || `<div style="color:#8a8375; text-align:center;">${currentLang==='fr'?'Aucun résultat':currentLang==='ar'?'لا توجد نتائج':'No results'}</div>`;
+  searchResults.querySelectorAll('.sr-item').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      searchOverlay.classList.remove('open');
+      openProductModal(el.dataset.id);
+    });
+  });
+});
+
+/* ---------- WhatsApp ordering ---------- */
+function greetingLine(){
+  return currentLang === 'fr' ? 'Bonjour TITRITE HOUSE, je souhaite commander :'
+    : currentLang === 'ar' ? 'مرحباً TITRITE HOUSE، أرغب في طلب:'
+    : 'Hello TITRITE HOUSE, I would like to order:';
+}
+document.getElementById('modalWhatsappBtn').addEventListener('click', ()=>{
+  if(!activeProductId) return;
+  const p = PRODUCTS.find(x=>x.id===activeProductId);
+  const name = p ? p.name[currentLang] : document.getElementById('modalName').textContent;
+  const qtyLabel = currentLang==='fr' ? 'Quantité' : currentLang==='ar' ? 'الكمية' : 'Quantity';
+  const msg = `${greetingLine()}\n- ${name} (${qtyLabel}: ${modalQty})`;
+  submitOrder([{ id: activeProductId, name, qty: modalQty }]);
+  window.open(buildWhatsappUrl(msg), '_blank');
+});
+document.getElementById('cartWhatsappBtn').addEventListener('click', ()=>{
+  const ids = Object.keys(cart).filter(id => cart[id] > 0);
+  const qtyLabel = currentLang==='fr' ? 'Quantité' : currentLang==='ar' ? 'الكمية' : 'Quantity';
+  let msg;
+  if(ids.length === 0){
+    msg = greetingLine();
+  } else {
+    const orderItems = [];
+    const lines = ids.map(id=>{
+      const p = PRODUCTS.find(x=>x.id===id);
+      if(!p) return null;
+      orderItems.push({ id, name: p.name[currentLang], qty: cart[id] });
+      return `- ${p.name[currentLang]} (${qtyLabel}: ${cart[id]})`;
+    }).filter(Boolean);
+    msg = `${greetingLine()}\n${lines.join('\n')}`;
+    submitOrder(orderItems);
+  }
+  window.open(buildWhatsappUrl(msg), '_blank');
+});
+document.getElementById('footerWhatsapp').addEventListener('click', (e)=>{
+  e.preventDefault();
+  window.open(buildWhatsappUrl(greetingLine()), '_blank');
+});
+document.getElementById('socialWhatsapp').addEventListener('click', (e)=>{
+  e.preventDefault();
+  window.open(buildWhatsappUrl(greetingLine()), '_blank');
+});
+
+/* ---------- Chat widget ---------- */
+const CHAT_API_URL = 'https://titritehouse.sssdsssb00.workers.dev/';
+const chatToggle = document.getElementById('chatToggle');
+const chatWindow = document.getElementById('chatWindow');
+const chatClose = document.getElementById('chatClose');
+const chatBody = document.getElementById('chatBody');
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+let chatHistory = [];
+
+function addChatMsg(text, role){
+  const el = document.createElement('div');
+  el.className = `chat-msg ${role}`;
+  el.textContent = text;
+  chatBody.appendChild(el);
+  chatBody.scrollTop = chatBody.scrollHeight;
+  return el;
+}
+
+chatToggle.addEventListener('click', ()=>{
+  chatWindow.classList.toggle('open');
+  if(chatWindow.classList.contains('open') && !chatBody.hasChildNodes()){
+    addChatMsg('Bonjour ! Comment puis-je vous aider aujourd\u2019hui ?', 'bot');
+  }
+  if(chatWindow.classList.contains('open')) chatInput.focus();
+});
+chatClose.addEventListener('click', ()=> chatWindow.classList.remove('open'));
+
+chatForm.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const message = chatInput.value.trim();
+  if(!message) return;
+  addChatMsg(message, 'user');
+  chatInput.value = '';
+  const typingEl = addChatMsg('...', 'bot typing');
+
+  chatHistory.push({ role:'user', content: message });
+  chatHistory = chatHistory.slice(-20);
+
+  try{
+    const res = await fetch(CHAT_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: chatHistory, session_id: CHAT_SESSION_ID, lang: currentLang })
+    });
+    const data = await res.json();
+    typingEl.remove();
+    if(data.reply){
+      addChatMsg(data.reply, 'bot');
+      chatHistory.push({ role:'assistant', content: data.reply });
+      chatHistory = chatHistory.slice(-20);
+    } else {
+      addChatMsg('Désolé, une erreur est survenue.', 'bot');
+    }
+  } catch(err){
+    typingEl.remove();
+    addChatMsg('Impossible de contacter le service pour le moment.', 'bot');
+  }
+});
+
+/* ---------- Orders API ---------- */
+async function submitOrder(items, notes){
+  try{
+    await fetch(`${API_BASE}/api/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        channel: 'whatsapp',
+        notes: notes || '',
+        items: items.map(it => ({
+          product_id: it.id || null,
+          product_name: it.name,
+          quantity: it.qty
+        }))
+      })
+    });
+  } catch(err){
+    console.warn('Could not save order to database (WhatsApp message still sent).', err);
+  }
+}
+
+/* ---------- Newsletter API ---------- */
+const newsletterForm = document.getElementById('newsletterForm');
+const newsletterMsg = document.getElementById('newsletterMsg');
+if(newsletterForm){
+  newsletterForm.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const emailInput = document.getElementById('newsletterEmail');
+    const email = emailInput.value.trim();
+    if(!email) return;
+    newsletterMsg.textContent = currentLang==='fr' ? 'Envoi…' : currentLang==='ar' ? 'جارٍ الإرسال…' : 'Sending…';
+    try{
+      const res = await fetch(`${API_BASE}/api/newsletter`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, lang: currentLang })
+      });
+      if(!res.ok) throw new Error('bad response');
+      newsletterMsg.textContent = currentLang==='fr' ? 'Merci pour votre inscription !' : currentLang==='ar' ? 'شكراً لاشتراكك!' : 'Thanks for subscribing!';
+      emailInput.value = '';
+    } catch(err){
+      newsletterMsg.textContent = currentLang==='fr' ? 'Erreur, réessayez.' : currentLang==='ar' ? 'حدث خطأ، حاول مجدداً.' : 'Something went wrong, please retry.';
+    }
+  });
+}
+
+/* ---------- Init ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+applyLang('en');
+loadProductsFromAPI();
+</script>
+</div>
+</body>
+</html>
